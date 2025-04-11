@@ -4,7 +4,7 @@ import React from 'react'
 const LeftSide = () => {
   return (
     <>
-      <div className="text-cyan-400 font-light text-lg tracking-wider mb-6"><a href='https://radius-ois.ai' target='_blank'>VISIT RADIUS</a></div>
+      <div className="text-white font-semibold text-lg tracking-wider mb-6"><a href='https://radius-ois.ai' target='_blank'>VISIT RADIUS</a></div>
 
       <div className="flex-1 flex flex-col justify-around">
         <div className="grid grid-cols-1 gap-2 w-full">
@@ -27,11 +27,6 @@ const LeftSide = () => {
               </div>
             </div>
           ))}
-        </div>
-
-
-        <div className="mt-4 border border-green-900/30 rounded-lg p-3 bg-black/50 h-1/3 overflow-hidden text-cyan-200">
-          there will be something like rewards we can showcase
         </div>
       </div>
 

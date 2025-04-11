@@ -7,7 +7,7 @@ const BookAMeeting = ({ glowIntensity }) => {
   return (
     <>
       <div className="h-full flex flex-col items-center justify-between cursor-pointer" onClick={handleRedirectToMeeting}>
-        <div className="text-cyan-400 font-light text-lg tracking-wider mb-3 text-center">
+        <div className="text-white font-semibold text-lg tracking-wider mb-3 text-center">
           BOOK A DEMO
         </div>
         <CalendarArrowUp className="w-24 h-24 text-green-300 mx-auto" />

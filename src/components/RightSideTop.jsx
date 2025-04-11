@@ -43,18 +43,18 @@ const RightSideTop = ({ glowIntensity }) => {
 
       {/* Controls content */}
       <div className="flex-1 p-6 flex flex-col">
-        <div className="text-cyan-400 font-regular text-lg tracking-wider mb-6">
+        <div className="text-white font-semibold text-lg tracking-wider mb-6">
           LIVE COMMUNICATION WITH AGENT
         </div>
 
         <div className="flex-1 grid grid-cols-3 gap-6">
           {[
-            { name: 'Video Channel', icon: <VideoIcon size={32} />, color: 'green' },
-            { name: 'Call Channel', icon: <Phone size={32} />, color: 'cyan' },
-            { name: 'Chat Channel', icon: <MessageSquare size={32} />, color: 'green' },
-            { name: 'Agent Console', icon: <UserCheck size={32} />, color: 'cyan' },
-            { name: 'Reporting Tool', icon: <FileCheck2 size={32} />, color: 'green' },
-            { name: 'Playback and QA Tool', icon: <AudioLines size={32} />, color: 'cyan' },
+            { name: 'Video', icon: <VideoIcon size={32} />, color: 'green' },
+            { name: 'Call', icon: <Phone size={32} />, color: 'cyan' },
+            { name: 'Chat', icon: <MessageSquare size={32} />, color: 'green' },
+            { name: 'Agent Console' , subheading : 'Interactive Demo', icon: <UserCheck size={32} />, color: 'cyan' },
+            { name: 'Reporting Tool', subheading : 'Interactive Demo' , icon: <FileCheck2 size={32} />, color: 'green' },
+            { name: 'Playback and QA Tool', subheading : 'Interactive Demo' , icon: <AudioLines size={32} />, color: 'cyan' },
           ].map((control, idx) => (
             <div
               key={idx}
@@ -81,9 +81,14 @@ const RightSideTop = ({ glowIntensity }) => {
                 {control.icon}
               </div>
               <div
-                className={`text-sm font-light ${control.color === 'green' ? 'text-green-300' : 'text-cyan-300'} tracking-wider uppercase`}
+                className={`text-sm font-light ${control.color === 'green' ? 'text-green-300' : 'text-cyan-300'} tracking-wider uppercase text-nowrap`}
               >
                 {control.name}
+              </div>
+              <div
+                className={`text-xs font-light text-white tracking-wider uppercase text-nowrap`}
+              >
+                {control.subheading}
               </div>
             </div>
           ))}
