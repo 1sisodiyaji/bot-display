@@ -1,6 +1,70 @@
 @import 'tailwindcss';
+
 body {
-  font-family:
-    Share Tech Mono,
-    monospace;
+  font-family: 'Roboto', sans-serif !important;
+}
+.roboto {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+--webkit::-scrollbar{
+  width: 0px;
+};
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+#call_eastChat2 {
+  display: none !important;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.iframeBox{
+  position: relative;
+  box-sizing: content-box;
+  max-height: 80vh; 
+  max-height: 80svh; 
+  width: 100%; 
+  aspect-ratio: 1.9672131147540983; 
+  padding: 40px 0 40px 0;
+}
+
+.iframeInner{
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
 }

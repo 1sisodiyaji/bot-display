@@ -1,4 +1,4 @@
-import { Calendar1Icon, CalendarArrowUp, ProjectorIcon } from 'lucide-react';
+import { CalendarArrowUp, CircleDot } from 'lucide-react';
 
 const BookAMeeting = ({ glowIntensity }) => {
   const handleRedirectToMeeting = () => {
@@ -6,11 +6,18 @@ const BookAMeeting = ({ glowIntensity }) => {
   };
   return (
     <>
-      <div className="h-full flex flex-col items-center justify-between cursor-pointer" onClick={handleRedirectToMeeting}>
-        <div className="text-white font-semibold text-lg tracking-wider mb-3 text-center">
+      <div
+        className="h-full flex flex-col items-start justify-between cursor-pointer"
+        onClick={handleRedirectToMeeting}
+      >
+        <div className="text-white font-semibold text-lg tracking-wider mb-3">
           BOOK A DEMO
+          <div className="flex gap-2 items-center">
+            <CircleDot className="w-4 text-green-400" />{' '}
+            <p className="text-xs text-cyan-300/80 animate-pulse">12 SLOTS AVAILABLE </p>
+          </div>
         </div>
-        <CalendarArrowUp className="w-24 h-24 text-green-300 mx-auto" />
+        <CalendarArrowUp className="w-24 h-24 text-green-400/80 animate-pulse place-self-end" />
       </div>
     </>
   );

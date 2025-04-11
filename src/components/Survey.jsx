@@ -49,36 +49,36 @@ const SurveyModal = ({ onClose }) => {
     }, 400);
   };
 
-  const formatTime = (date) => {
+  const formatTime = date => {
     const pad = n => n.toString().padStart(2, '0');
     return `${pad(date.getDate())}/${pad(date.getMonth() + 1)}/${date.getFullYear()} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
   };
 
   const handleStarClick = rating => {
-    const key = `q${step + 1}`; 
-    const updatedFormData = { ...formData, [key]: rating }; 
-    setFormData(updatedFormData); 
+    const key = `q${step + 1}`;
+    const updatedFormData = { ...formData, [key]: rating };
+    setFormData(updatedFormData);
     if (step === questions.length - 1) {
-      setAnimation('fadeOut'); 
-      setTimeout(() => { 
+      setAnimation('fadeOut');
+      setTimeout(() => {
         handleSubmit(updatedFormData);
       }, 400);
-    } else { 
+    } else {
       goToNextQuestion();
     }
   };
 
   const handleSubmit = async (finalData = null) => {
     try {
-      setIsSubmitting(true); 
+      setIsSubmitting(true);
       const dataToUse = finalData || formData;
-      
+
       const formDataToSubmit = new FormData();
       formDataToSubmit.append('TimeStamp', formatTime(new Date()));
       formDataToSubmit.append('question1', dataToUse.q1);
       formDataToSubmit.append('question2', dataToUse.q2);
       formDataToSubmit.append('question3', dataToUse.q3);
-      
+
       await fetch(
         'https://script.google.com/macros/s/AKfycbzM2_sLX1dsf3hcjO3FvsbkUJrqIX4WO4b5Ml9eYOQdCYfkLD_aQGkXtyWNMZt2AF1j/exec',
         {
@@ -88,7 +88,7 @@ const SurveyModal = ({ onClose }) => {
         }
       );
 
-      setSubmitted(true); 
+      setSubmitted(true);
       setTimeout(onClose, 1500);
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -117,18 +117,17 @@ const SurveyModal = ({ onClose }) => {
   };
 
   return ReactDOM.createPortal(
-    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex justify-center items-center" onClick={onClose}>
-      <div
-        className="bg-gradient-to-br from-green-500/5 to-cyan-500/5 border border-green-600 text-green-200 rounded-2xl p-6 w-[600px] min-h-72 shadow-[0_0_6px_#00ff88] flex flex-col justify-between items-center"
-        style={{ animation: 'fadeIn 0.3s ease-in-out' }}
-      >
+    <div
+      className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex justify-center items-center"
+      onClick={onClose}
+    >
+      <div className="bg-gradient-to-br from-green-500/5 to-cyan-500/5 animate-fadeIn duration-300 border border-green-600 text-green-200 rounded-2xl p-6 w-[600px] min-h-72 shadow-[0_0_6px_#00ff88] flex flex-col justify-between items-center">
         <div
           className="relative bg-gradient-to-br from-green-900/20 to-cyan-900/20 border border-green-600/60 text-green-200 
-                  rounded-2xl p-8 w-full z-10
-                  flex flex-col justify-between items-center transition-transform duration-300 hover:scale-105"
+                  rounded-2xl p-8 w-full z-10 animate-fadeIn duration-300
+                  flex flex-col justify-between items-center transition-transform hover:scale-105"
           style={{
             boxShadow: '0 0 25px rgba(0, 255, 136, 0.3), inset 0 0 15px rgba(0, 255, 136, 0.1)',
-            animation: 'fadeIn 0.5s ease-in-out',
           }}
           onClick={e => e.stopPropagation()}
         >
@@ -186,10 +185,7 @@ const SurveyModal = ({ onClose }) => {
               )}
             </>
           ) : (
-            <div
-              className="flex flex-col items-center justify-center gap-6 text-green-400 text-center py-6"
-              style={{ animation: 'fadeIn 0.5s ease-in-out' }}
-            >
+            <div className="flex flex-col items-center justify-center gap-6 text-green-400 text-center py-6 animate-fadeIn duration-300">
               <h2 className="text-3xl font-bold">Thank you for your feedback!</h2>
               <p className="text-xl text-green-300/80">Enjoy the rest of the experience 🚀</p>
               <div className="flex gap-6 items-center mt-4">
@@ -218,7 +214,7 @@ const SurveyModal = ({ onClose }) => {
             method="POST"
             action="https://script.google.com/macros/s/AKfycbzM2_sLX1dsf3hcjO3FvsbkUJrqIX4WO4b5Ml9eYOQdCYfkLD_aQGkXtyWNMZt2AF1j/exec"
             style={{ display: 'none' }}
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={e => e.preventDefault()}
           >
             <input type="hidden" name="question1" value={formData.q1} />
             <input type="hidden" name="question2" value={formData.q2} />

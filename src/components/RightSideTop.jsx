@@ -1,6 +1,203 @@
-import { AudioLines, FileCheck2, MessageSquare, Phone, UserCheck, VideoIcon } from 'lucide-react';
+import {
+  AudioLines,
+  FileCheck2,
+  MessageSquare,
+  Phone,
+  RadioIcon,
+  UserCheck,
+  VideoIcon,
+  X,
+} from 'lucide-react';
+import { useEffect, useState } from 'react';
+import InteractiveDemo from './InteractiveDemo';
 
 const RightSideTop = ({ glowIntensity }) => {
+  const [showcall, setShowCall] = useState(false);
+  const [showchat, setShowChat] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+  const [InteractiveDemo1, setInteractiveDemo1] = useState(false);
+  const [InteractiveDemo2, setInteractiveDemo2] = useState(false);
+  const [InteractiveDemo3, setInteractiveDemo3] = useState(false);
+
+  const handleOpenCallOperation = () => {
+    setShowCall(true);
+    setTimeout(() => {
+      window.callSubmit?.();
+    }, [1000]);
+  };
+  const handleCloseCall = () => {
+   const callContent =  document.getElementById('call-container');
+    setShowCall(false);
+  }
+
+  const handleOpenChatOperation = () => {
+    setShowChat(true);
+    setTimeout(() => {
+      window.chatSubmit?.();
+    }, [1000]);
+  };
+  const handleCloseChat = () => { 
+    setShowChat(false);
+    window.location.reload();
+  }
+
+  const handleOpenVideoOperation = () => {
+    setShowVideo(true);
+    setTimeout(() => {
+      window.videoSubmit?.();
+    }, [1000]);
+  };
+  const handleCloseVideo = () => {
+    setShowVideo(false);
+    window.location.reload();
+  }
+
+  const handleInteractiveDemo1 = () => setInteractiveDemo1(true);
+  const handleInteractiveDemo1Close = () => setInteractiveDemo1(false);
+
+  
+  const handleInteractiveDemo2 = () => setInteractiveDemo2(true);
+  const handleInteractiveDemo2Close = () => setInteractiveDemo2(false);
+
+
+  const handleInteractiveDemo3 = () => setInteractiveDemo3(true);
+  const handleInteractiveDemo3Close = () => setInteractiveDemo3(false);
+
+  useEffect(() => {
+    const existingScript = document.getElementById('chat_now');
+
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.id = 'chat_now';
+
+      script.text = `
+         window.$EsyCht || (function (d, s) {
+        var _e = $EsyCht = function (c) {
+        _e._.push(c)
+        }, $ = _e.s =
+        d.createElement(s), e = d.getElementsByTagName(s)[0];
+        _e.set = function (o) {_e.set._.push(o)
+        };
+        _e._ = [];
+        _e.set._ = [];
+        $.async = !0;
+        $.setAttribute("charset", "utf-8");
+        $.setAttribute("id", "cd");
+        $.src = "https://demo.radius-ois.ai/robowebtools/assets/js/vis435net.js?8de1cacdcda71da3aa79";
+
+        _e.t = +new Date;
+        $.type = "text/javascript";
+        e.parentNode.insertBefore($, e)
+        })(document, "script");
+      `;
+
+      document.body.appendChild(script);
+    } else {
+      setIsLoaded(true);
+    }
+
+    const handleLoad = () => setIsLoaded(true);
+    const handleError = () => setHasError(true);
+
+    window.addEventListener('callScriptLoaded', handleLoad);
+    window.addEventListener('callScriptFailed', handleError);
+
+    return () => {
+      window.removeEventListener('callScriptLoaded', handleLoad);
+      window.removeEventListener('callScriptFailed', handleError);
+    };
+  }, []);
+  useEffect(() => {
+    const existingScript = document.getElementById('call_now');
+
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.id = 'call_now';
+
+      script.text = `
+       window.$CallNow || (function (doc_Call, scr_Call) {
+        var _e_CallNow = $CallNow = function (Ruvo_c) {
+        _e_CallNow._.push(Ruvo_c)
+        }, $ = _e_CallNow.s =
+        doc_Call.createElement(scr_Call), e = doc_Call.getElementsByTagName(scr_Call)[0];
+        _e_CallNow.set = function (o) {_e_CallNow.set._.push(o)
+        };
+        _e_CallNow._ = [];
+        _e_CallNow.set._ = [];
+        $.async = !0;
+        $.setAttribute("charset", "utf-8");
+        $.setAttribute("id", "call_now");
+        $.src = "https://demo.radius-ois.ai/robowebtoolscall/assets/js/call_ui.js?e87274b76f0d82e1ffcf";
+
+        _e_CallNow.t = +new Date;
+        $.type = "text/javascript";
+        e.parentNode.insertBefore($, e)
+        })(document, "script");
+      `;
+
+      document.body.appendChild(script);
+    } else {
+      setIsLoaded(true);
+    }
+
+    const handleLoad = () => setIsLoaded(true);
+    const handleError = () => setHasError(true);
+
+    window.addEventListener('callScriptLoaded', handleLoad);
+    window.addEventListener('callScriptFailed', handleError);
+
+    return () => {
+      window.removeEventListener('callScriptLoaded', handleLoad);
+      window.removeEventListener('callScriptFailed', handleError);
+    };
+  }, []);
+
+  useEffect(() => {
+    const existingScript = document.getElementById('Video_Now');
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.id = 'Video_Now';
+
+      script.text = `
+        window.$RuvoChat || (function (doc_RuvoChat, scr_RuvoChat) {
+        var _e_RuvoChat = $RuvoChat = function (Ruvo_c) {
+        _e_RuvoChat._.push(Ruvo_c)
+        }, $ = _e_RuvoChat.s =
+        doc_RuvoChat.createElement(scr_RuvoChat), e = doc_RuvoChat.getElementsByTagName(scr_RuvoChat)[0];
+        _e_RuvoChat.set = function (o) {_e_RuvoChat.set._.push(o)
+        };
+        _e_RuvoChat._ = [];
+        _e_RuvoChat.set._ = [];
+        $.async = !0;
+        $.setAttribute("charset", "utf-8");
+        $.setAttribute("id", "vd");
+        $.src = "https://demo.radius-ois.ai/robowebtools/assets/js/ruvo_ui.js?8de1cacdcda71da3aa79";
+
+        _e_RuvoChat.t = +new Date;
+        $.type = "text/javascript";
+        e.parentNode.insertBefore($, e)
+        })(document, "script");
+      `;
+
+      document.body.appendChild(script);
+    } else {
+      setIsLoaded(true);
+    }
+
+    const handleLoad = () => setIsLoaded(true);
+    const handleError = () => setHasError(true);
+    window.addEventListener('callScriptLoaded', handleLoad);
+    window.addEventListener('callScriptFailed', handleError);
+    return () => {
+      window.removeEventListener('callScriptLoaded', handleLoad);
+      window.removeEventListener('callScriptFailed', handleError);
+    };
+  }, []);
   return (
     <>
       <div className="absolute top-0 right-0 w-1/2 h-full overflow-hidden pointer-events-none">
@@ -49,16 +246,55 @@ const RightSideTop = ({ glowIntensity }) => {
 
         <div className="flex-1 grid grid-cols-3 gap-6">
           {[
-            { name: 'Video', icon: <VideoIcon size={32} />, color: 'green' },
-            { name: 'Call', icon: <Phone size={32} />, color: 'cyan' },
-            { name: 'Chat', icon: <MessageSquare size={32} />, color: 'green' },
-            { name: 'Agent Console' , subheading : 'Interactive Demo', icon: <UserCheck size={32} />, color: 'cyan' },
-            { name: 'Reporting Tool', subheading : 'Interactive Demo' , icon: <FileCheck2 size={32} />, color: 'green' },
-            { name: 'Playback and QA Tool', subheading : 'Interactive Demo' , icon: <AudioLines size={32} />, color: 'cyan' },
+            {
+              name: 'Video',
+              Extra: <RadioIcon size={16} className="text-red-500 animate-pulse" />,
+              ExtraText: 'CONNECT WITH AGENT',
+              icon: <VideoIcon size={32} />,
+              color: 'green',
+              onclickValue: handleOpenVideoOperation,
+            },
+            {
+              name: 'Call',
+              Extra: <RadioIcon size={16} className="text-red-500 animate-pulse" />,
+              ExtraText: 'CONNECT WITH AGENT',
+              icon: <Phone size={32} />,
+              color: 'cyan',
+              onclickValue: handleOpenCallOperation,
+            },
+            {
+              name: 'Chat',
+              Extra: <RadioIcon size={16} className="text-red-500 animate-pulse" />,
+              ExtraText: 'CONNECT WITH AGENT',
+              icon: <MessageSquare size={32} />,
+              color: 'green',
+              onclickValue: handleOpenChatOperation,
+            },
+            {
+              name: 'Agent Console',
+              subheading: 'Interactive Demo',
+              icon: <UserCheck size={32} />,
+              color: 'cyan',
+              onclickValue: handleInteractiveDemo1,
+            },
+            {
+              name: 'Reporting Tool',
+              subheading: 'Interactive Demo',
+              icon: <FileCheck2 size={32} />,
+              color: 'green',
+              onclickValue: handleInteractiveDemo2,
+            },
+            {
+              name: 'Playback and QA Tool',
+              subheading: 'Interactive Demo',
+              icon: <AudioLines size={32} />,
+              color: 'cyan',
+              onclickValue: handleInteractiveDemo3,
+            },
           ].map((control, idx) => (
             <div
               key={idx}
-              className={`rounded-xl flex flex-col justify-center items-center p-4 cursor-pointer group hover:scale-105 transition-transform duration-300`}
+              className={`rounded-xl flex flex-col justify-center items-center p-4 cursor-pointer group active:scale-105 transition-transform duration-300 ease-in-out shadow-lg active:shadow-inner`}
               style={{
                 background: 'rgba(0,0,0,0.6)',
                 boxShadow:
@@ -74,7 +310,13 @@ const RightSideTop = ({ glowIntensity }) => {
                     ? '1px solid rgba(52, 211, 153, 0.3)'
                     : '1px solid rgba(6, 182, 212, 0.3)',
               }}
+              onClick={control.onclickValue}
             >
+              <div className="w-full flex justify-start items-center gap-4 mb-2">
+                {control.Extra}
+                <span className="text-white/90 text-sm">{control.ExtraText}</span>
+              </div>
+
               <div
                 className={`mb-4 ${control.color === 'green' ? 'text-green-400' : 'text-cyan-400'} group-hover:scale-110 transition-transform duration-300`}
               >
@@ -85,15 +327,90 @@ const RightSideTop = ({ glowIntensity }) => {
               >
                 {control.name}
               </div>
-              <div
-                className={`text-xs font-light text-white tracking-wider uppercase text-nowrap`}
-              >
+              <div className={`text-xs font-light text-white tracking-wider uppercase text-nowrap`}>
                 {control.subheading}
               </div>
             </div>
           ))}
         </div>
       </div>
+ 
+        <div className={`fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex justify-center items-center ${showcall ? '' : 'hidden'}`}>
+          <div
+            className="bg-gradient-to-br from-green-500/5 to-cyan-500/5 border border-green-600 text-green-200 rounded-2xl p-6 w-4xl h-4/5  min-h-72 shadow-[0_0_6px_#00ff88] flex flex-col justify-between items-center"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="w-full flex justify-end mb-2">
+              <X onClick={handleCloseCall} className="cursor-pointer" />
+            </div>
+
+            <div className="w-full flex justify-center items-center min-h-[200px]">
+              {hasError ? (
+                <div className="text-red-400 text-center text-sm">
+                  Failed to load Call UI. Please try again later.
+                </div>
+              ) : !isLoaded ? (
+                <div className="text-green-300 animate-pulse text-center">Loading Call UI...</div>
+              ) : (
+                <div id="call-container" className="w-4xl h-full min-h-72" />
+              )}
+            </div>
+          </div>
+        </div> 
+ 
+        <div
+          className={`fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex justify-center items-center ${showchat ? '' : 'hidden'}`}
+        >
+          <div
+            className="bg-gradient-to-br from-green-500/5 to-cyan-500/5 border border-green-600 text-green-200 rounded-2xl p-6 w-4xl h-4/5  min-h-72 shadow-[0_0_6px_#00ff88] flex flex-col justify-between items-center"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="w-full flex justify-end mb-2">
+              <X onClick={handleCloseChat} className="cursor-pointer" />
+            </div>
+
+            <div className="w-full flex justify-center items-center min-h-[200px]">
+              {hasError ? (
+                <div className="text-red-400 text-center text-sm">
+                  Failed to load Call UI. Please try again later.
+                </div>
+              ) : !isLoaded ? (
+                <div className="text-green-300 animate-pulse text-center">Loading Call UI...</div>
+              ) : (
+                <div id="vis-chat" className="w-4xl h-full min-h-72  scrollbar-hide" />
+              )}
+            </div>
+          </div>
+        </div>
+ 
+        <div
+          className={`fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex justify-center items-center ${showVideo ? '' : 'hidden'}`}
+        >
+          <div
+            className="bg-gradient-to-br from-green-500/5 to-cyan-500/5 border border-green-600 text-green-200 rounded-2xl p-6 w-4xl h-4/5  min-h-72 shadow-[0_0_6px_#00ff88] flex flex-col justify-between items-center"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="w-full flex justify-end mb-2">
+              <X onClick={handleCloseVideo} className="cursor-pointer" />
+            </div>
+
+            <div className="w-full flex justify-center items-center min-h-[200px]">
+              {hasError ? (
+                <div className="text-red-400 text-center text-sm">
+                  Failed to load Call UI. Please try again later.
+                </div>
+              ) : !isLoaded ? (
+                <div className="text-green-300 animate-pulse text-center">Loading Call UI...</div>
+              ) : (
+                <div id="video-chat" className="w-full" />
+              )}
+            </div>
+          </div>
+        </div> 
+
+        {InteractiveDemo1 && <InteractiveDemo url = {'https://app.supademo.com/embed/cm9816bor003q3r0i2j33ooe9?embed_v=2'} onClose = {handleInteractiveDemo1Close} />}
+        {InteractiveDemo2 && <InteractiveDemo url = {'https://app.supademo.com/embed/cm982foyc004n1o0ihxdb4jyo?embed_v=2'} onClose = {handleInteractiveDemo2Close} />}
+        {InteractiveDemo3 && <InteractiveDemo url = {'https://app.supademo.com/embed/cm9837e26009t1o0ieyhu6asm?embed_v=2'} onClose = {handleInteractiveDemo3Close} />}
     </>
   );
 };
