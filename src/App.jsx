@@ -8,6 +8,23 @@ const App = () => {
   const [glowIntensity, setGlowIntensity] = useState(0.6);
   const [activeSection, setActiveSection] = useState(null);
 
+  const enterFullscreen = () => {
+    const el = document.documentElement;
+    if (el.requestFullscreen) {
+      el.requestFullscreen();
+    } else if (el.webkitRequestFullscreen) {
+      el.webkitRequestFullscreen();
+    } else if (el.msRequestFullscreen) {
+      el.msRequestFullscreen();
+    } else {
+      alert('Fullscreen API is not supported in this browser.');
+    }
+  };
+  useEffect(() => {
+    enterFullscreen();
+  }, []);
+
+
   useEffect(() => {
     const interval = setInterval(() => {
       setGlowIntensity(prev => {
@@ -28,6 +45,7 @@ const App = () => {
   };
   return (
     <div className="flex justify-center items-center  bg-black font-roboto relative overflow-hidden">
+
       {/* Animated background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-blue-950/20 to-black" />
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden">

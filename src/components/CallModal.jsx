@@ -2,7 +2,7 @@ import { X } from 'lucide-react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const CallModal = ({ id, hasError, onclose, isLoaded, tag }) => {
+const Modal = ({ id, hasError, onclose, isLoaded, tag , text }) => {
   return ReactDOM.createPortal(
     <div
       className={`fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex justify-center items-center ${tag ? '' : 'hidden'}`}
@@ -17,9 +17,9 @@ const CallModal = ({ id, hasError, onclose, isLoaded, tag }) => {
 
         <div className="w-full flex justify-center items-center min-h-[200px]">
           {hasError ? (
-            <div className="text-red-400 text-center text-sm">Failed to load Call UI. Please try again later.</div>
+            <div className="text-red-400 text-center text-sm">Failed to load {text} UI. Please try again later.</div>
           ) : !isLoaded ? (
-            <div className="text-green-300 animate-pulse text-center">Loading Call UI...</div>
+            <div className="text-green-300 animate-pulse text-center">Loading {text} UI...</div>
           ) : (
             <div id={id} className="w-full min-h-96 h-[79vh] rounded-md" />
           )}
@@ -30,4 +30,4 @@ const CallModal = ({ id, hasError, onclose, isLoaded, tag }) => {
   );
 };
 
-export default CallModal;
+export default Modal;

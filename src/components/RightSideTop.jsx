@@ -1,7 +1,7 @@
 import { AudioLines, FileCheck2, MessageSquare, Phone, RadioIcon, UserCheck, VideoIcon, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import InteractiveDemo from './InteractiveDemo';
-import CallModal from './CallModal';
+import Modal from './CallModal';
 
 const RightSideTop = ({ glowIntensity }) => {
   const [showcall, setShowCall] = useState(false);
@@ -295,9 +295,9 @@ const RightSideTop = ({ glowIntensity }) => {
         </div>
       </div>
  
-      <CallModal id={'call-container'} hasError={hasError} onclose={handleCloseCall} tag={showcall} isLoaded={isLoaded} />
-      <CallModal id={'vis-chat'} hasError={hasError} onclose={handleCloseChat} tag={showchat} isLoaded={isLoaded} />
-      <CallModal id={'video-chat'} hasError={hasError} onclose={handleCloseVideo} tag={showVideo} isLoaded={isLoaded} />
+      <Modal id={'call-container'} hasError={hasError} onclose={handleCloseCall} tag={showcall} isLoaded={isLoaded} text= {'Call'}/>
+      <Modal id={'vis-chat'} hasError={hasError} onclose={handleCloseChat} tag={showchat} isLoaded={isLoaded}  text= {'Chat'} />
+      <Modal id={'video-chat'} hasError={hasError} onclose={handleCloseVideo} tag={showVideo} isLoaded={isLoaded}   text= {'Video'} />
       {InteractiveDemo1 && ( <InteractiveDemo url={'https://app.supademo.com/embed/cm9837e26009t1o0ieyhu6asm?embed_v=2'} onClose={handleInteractiveDemo1Close} text={'Welcome to Agent Console'} />  )}
       {InteractiveDemo2 && (<InteractiveDemo  url={'https://app.supademo.com/embed/cm9816bor003q3r0i2j33ooe9?embed_v=2'} onClose={handleInteractiveDemo2Close} text={'Get An Overview of reports'}  /> )}
       {InteractiveDemo3 && (<InteractiveDemo  url={'https://app.supademo.com/embed/cm982foyc004n1o0ihxdb4jyo?embed_v=2'} onClose={handleInteractiveDemo3Close} text={'Get an Quick overview of quality assurance'} /> )}
