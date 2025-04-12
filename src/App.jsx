@@ -31,6 +31,20 @@ const App = () => {
       }
     }
   }
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setShowFullScreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    };
+  }, []);
+
+
+
   useEffect(() => {
     const interval = setInterval(() => {
       setGlowIntensity(prev => {
@@ -56,7 +70,7 @@ const App = () => {
       className="absolute top-0 right-0 z-[100] cursor-pointer rounded-lg p-2 hover:bg-cyan-900/20 transition"
     >
       {showFullScreen ? (
-        <X className="text-xl text-cyan-400" />
+        <></>
       ) : (
         <Fullscreen className="text-xl text-cyan-400" />
       )}
