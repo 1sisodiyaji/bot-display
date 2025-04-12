@@ -15,7 +15,6 @@ createRoot(document.getElementById('root')).render(
 );
 
 let deferredPrompt;
-
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
