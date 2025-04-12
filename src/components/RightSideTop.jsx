@@ -290,9 +290,9 @@ const RightSideTop = ({ glowIntensity }) => {
           ))}
         </div>
       </div>
-
+      <div className="" id='vis-chat'></div>
       <Modal id={'call-container'} hasError={hasError} onclose={handleCloseCall} tag={showcall} isLoaded={isLoaded} text={'Call'} />
-      <Modal id={'vis-chat'} hasError={hasError} onclose={handleCloseChat} tag={showchat} isLoaded={isLoaded} text={'Chat'} />
+      <Modal id={'vis-chat2'} hasError={hasError} onclose={handleCloseChat} tag={showchat} isLoaded={isLoaded} text={'Chat'} />
       <Modal id={'video-chat'} hasError={hasError} onclose={handleCloseVideo} tag={showVideo} isLoaded={isLoaded} text={'Video'} />
       {InteractiveDemo1 && (<InteractiveDemo url={'https://app.supademo.com/embed/cm9837e26009t1o0ieyhu6asm?embed_v=2'} onClose={handleInteractiveDemo1Close} text={'Welcome to Agent Console'} />)}
       {InteractiveDemo2 && (<InteractiveDemo url={'https://app.supademo.com/embed/cm9816bor003q3r0i2j33ooe9?embed_v=2'} onClose={handleInteractiveDemo2Close} text={'Get An Overview of reports'} />)}
