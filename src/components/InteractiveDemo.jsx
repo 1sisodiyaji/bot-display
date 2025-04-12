@@ -19,10 +19,10 @@ const InteractiveDemo = ({ onClose, url ,text}) => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 50 }}
           transition={{ duration: 0.4, ease: 'easeInOut' }}
-          className="bg-gradient-to-br from-green-500/5 to-cyan-500/5 border border-green-600 text-green-200 rounded-2xl p-1 w-11/12 min-h-72 shadow-[0_0_6px_#00ff88] flex flex-col justify-between items-center relative scrollbar-hide"
+          className="bg-gradient-to-br from-green-500/5 to-cyan-500/5 border border-green-600 text-green-200 rounded-2xl p-1 w-[99%] h-[99%] m-1 min-h-72 shadow-[0_0_6px_#00ff88] flex flex-col justify-between items-center relative scrollbar-hide"
           onClick={e => e.stopPropagation()}
         >
-          <div className="mb-2 absolute -top-6 -right-4  bg-red-200 inline rounded-full p-2 z-20 active:scale-85">
+          <div className="mb-2 absolute top-6 right-4  bg-red-200 inline rounded-full p-2 z-20 active:scale-85">
             <X onClick={onClose} className="cursor-pointer text-red-400" />
           </div>
 

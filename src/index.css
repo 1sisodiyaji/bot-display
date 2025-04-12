@@ -63,8 +63,8 @@ html {
 .iframeBox {
   position: relative;
   box-sizing: content-box;
-  max-height: 80vh;
-  max-height: 80svh;
+  max-height: 99vh;
+  max-height: 99svh;
   width: 100%;
   aspect-ratio: 1.9672131147540983;
   padding: 0px 0 40px 0;
