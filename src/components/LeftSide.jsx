@@ -1,4 +1,4 @@
-import { MessageSquare, Ratio, Sunset, Zap } from 'lucide-react';
+import { Cable, Flame, MessageSquare, Ratio, Sunset, Zap } from 'lucide-react';
 import React from 'react';
 
 const LeftSide = () => {
@@ -15,35 +15,33 @@ const LeftSide = () => {
           {[
             {
               label: 'MULTICHANNEL SUPPORT',
-              stats: 70,
+              stats: 90,
               data: '24X7',
               icon: <MessageSquare size={20} />,
             },
-            { label: 'INTEGRATED SOLUTIONS', stats: 90, data: '45+', icon: <Ratio size={20} /> },
+            { label: 'INTEGRATED SOLUTIONS', stats: 45, data: '45+', icon: <Cable size={20} /> },
             { label: 'YEARS OF TECHNOLOGY', stats: 60, data: '10+', icon: <Sunset size={20} /> },
             { label: 'FEATURES WE OFFER', stats: 100, data: '500+', icon: <Zap size={20} /> },
             {
               label: 'BESPOKE SOLUTIONS DEVELOPED',
               stats: 85,
               data: '40+',
-              icon: <Zap size={20} />,
+              icon: <Flame size={20} />,
             },
           ].map((metric, idx) => (
             <div
               key={idx}
-              className={`p-1 rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.05)] hover:scale-[1.03] transition-transform duration-300`}
+              className={`p-1 rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.05)] hover:scale-[1.03] transition-transform duration-300 mb-4`}
             >
-              <div className="flex justify-between items-center gap-2 mb-2">
-                <span className={`font-mono text-xs text-white`}>{metric.label}</span>
-                <span className={`text-2xl font-semibold text-cyan-600 mb-2`}>{metric.data}</span>
-              </div>
-
-              <div className="w-full h-2 bg-white/20 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-bl from-green-400 to-cyan-300 transition-all duration-500 ease-in-out rounded-md"
-                  style={{ width: `${metric.stats}%` }}
-                ></div>
-              </div>
+               <div className="flex items-center gap-3">
+            <div className={` p-3 text-white bg-gradient-to-bl from-gray-600 to bg-green-300 rounded-full`}>
+              {metric.icon}
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xs font-medium text-gray-500">{metric.label}</span>
+              <span className="text-2xl font-bold text-cyan-600">{metric.data}</span>
+            </div>
+          </div>
             </div>
           ))}
         </div>

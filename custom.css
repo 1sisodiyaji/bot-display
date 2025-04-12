@@ -1,0 +1,15 @@
+.chat-history {
+    background: pink !important;
+}
+
+.top-hedding {
+    display: none !important;
+}
+
+input .saveit {
+    display: none !important;
+}
+
+.chat {
+    height: 100%;
+}

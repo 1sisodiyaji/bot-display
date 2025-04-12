@@ -1,15 +1,7 @@
-import {
-  AudioLines,
-  FileCheck2,
-  MessageSquare,
-  Phone,
-  RadioIcon,
-  UserCheck,
-  VideoIcon,
-  X,
-} from 'lucide-react';
+import { AudioLines, FileCheck2, MessageSquare, Phone, RadioIcon, UserCheck, VideoIcon, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import InteractiveDemo from './InteractiveDemo';
+import CallModal from './CallModal';
 
 const RightSideTop = ({ glowIntensity }) => {
   const [showcall, setShowCall] = useState(false);
@@ -22,45 +14,43 @@ const RightSideTop = ({ glowIntensity }) => {
   const [InteractiveDemo3, setInteractiveDemo3] = useState(false);
 
   const handleOpenCallOperation = () => {
+    if(!isLoaded) return;
     setShowCall(true);
     setTimeout(() => {
       window.callSubmit?.();
     }, [1000]);
   };
   const handleCloseCall = () => {
-   const callContent =  document.getElementById('call-container');
+    window.location.reload();
     setShowCall(false);
-  }
+  };
 
   const handleOpenChatOperation = () => {
+    if(!isLoaded) return;
     setShowChat(true);
-    setTimeout(() => {
-      window.chatSubmit?.();
-    }, [1000]);
+    window.chatSubmit?.();
   };
-  const handleCloseChat = () => { 
+
+  const handleCloseChat = () => {
     setShowChat(false);
     window.location.reload();
-  }
+  };
 
   const handleOpenVideoOperation = () => {
+    if(!isLoaded) return;
     setShowVideo(true);
-    setTimeout(() => {
-      window.videoSubmit?.();
-    }, [1000]);
+    window.videoSubmit?.();
   };
   const handleCloseVideo = () => {
     setShowVideo(false);
     window.location.reload();
-  }
+  };
 
   const handleInteractiveDemo1 = () => setInteractiveDemo1(true);
   const handleInteractiveDemo1Close = () => setInteractiveDemo1(false);
 
-  
   const handleInteractiveDemo2 = () => setInteractiveDemo2(true);
   const handleInteractiveDemo2Close = () => setInteractiveDemo2(false);
-
 
   const handleInteractiveDemo3 = () => setInteractiveDemo3(true);
   const handleInteractiveDemo3Close = () => setInteractiveDemo3(false);
@@ -74,7 +64,7 @@ const RightSideTop = ({ glowIntensity }) => {
       script.id = 'chat_now';
 
       script.text = `
-         window.$EsyCht || (function (d, s) {
+        window.$EsyCht || (function (d, s) {
         var _e = $EsyCht = function (c) {
         _e._.push(c)
         }, $ = _e.s =
@@ -109,7 +99,8 @@ const RightSideTop = ({ glowIntensity }) => {
       window.removeEventListener('callScriptLoaded', handleLoad);
       window.removeEventListener('callScriptFailed', handleError);
     };
-  }, []);
+  }, [showchat]);
+
   useEffect(() => {
     const existingScript = document.getElementById('call_now');
 
@@ -154,7 +145,7 @@ const RightSideTop = ({ glowIntensity }) => {
       window.removeEventListener('callScriptLoaded', handleLoad);
       window.removeEventListener('callScriptFailed', handleError);
     };
-  }, []);
+  }, [showcall]);
 
   useEffect(() => {
     const existingScript = document.getElementById('Video_Now');
@@ -197,52 +188,25 @@ const RightSideTop = ({ glowIntensity }) => {
       window.removeEventListener('callScriptLoaded', handleLoad);
       window.removeEventListener('callScriptFailed', handleError);
     };
-  }, []);
+  }, [showVideo]);
   return (
     <>
       <div className="absolute top-0 right-0 w-1/2 h-full overflow-hidden pointer-events-none">
         <div className="w-full h-full bg-gradient-to-br from-green-500/5 to-cyan-500/5" />
         <div className="absolute top-0 left-0 w-full h-full">
           <svg width="100%" height="100%" viewBox="0 0 100 100" fill="none">
-            <path
-              d="M0,50 Q25,0 50,50 T100,50"
-              stroke="rgba(52, 211, 153, 0.2)"
-              strokeWidth="0.2"
-              fill="none"
-            />
-            <path
-              d="M0,60 Q25,10 50,60 T100,60"
-              stroke="rgba(52, 211, 153, 0.15)"
-              strokeWidth="0.2"
-              fill="none"
-            />
-            <path
-              d="M0,70 Q25,20 50,70 T100,70"
-              stroke="rgba(52, 211, 153, 0.1)"
-              strokeWidth="0.2"
-              fill="none"
-            />
-            <path
-              d="M0,40 Q25,90 50,40 T100,40"
-              stroke="rgba(6, 182, 212, 0.2)"
-              strokeWidth="0.2"
-              fill="none"
-            />
-            <path
-              d="M0,30 Q25,80 50,30 T100,30"
-              stroke="rgba(6, 182, 212, 0.15)"
-              strokeWidth="0.2"
-              fill="none"
-            />
+            <path d="M0,50 Q25,0 50,50 T100,50" stroke="rgba(52, 211, 153, 0.2)" strokeWidth="0.2" fill="none" />
+            <path d="M0,60 Q25,10 50,60 T100,60" stroke="rgba(52, 211, 153, 0.15)" strokeWidth="0.2" fill="none" />
+            <path d="M0,70 Q25,20 50,70 T100,70" stroke="rgba(52, 211, 153, 0.1)" strokeWidth="0.2" fill="none" />
+            <path d="M0,40 Q25,90 50,40 T100,40" stroke="rgba(6, 182, 212, 0.2)" strokeWidth="0.2" fill="none" />
+            <path d="M0,30 Q25,80 50,30 T100,30" stroke="rgba(6, 182, 212, 0.15)" strokeWidth="0.2" fill="none" />
           </svg>
         </div>
       </div>
 
       {/* Controls content */}
       <div className="flex-1 p-6 flex flex-col">
-        <div className="text-white font-semibold text-lg tracking-wider mb-6">
-          LIVE COMMUNICATION WITH AGENT
-        </div>
+        <div className="text-white font-semibold text-lg tracking-wider mb-6">LIVE COMMUNICATION WITH AGENT</div>
 
         <div className="flex-1 grid grid-cols-3 gap-6">
           {[
@@ -302,17 +266,13 @@ const RightSideTop = ({ glowIntensity }) => {
                     ? `0 0 15px rgba(52, 211, 153, ${glowIntensity * 0.4})`
                     : `0 0 15px rgba(6, 182, 212, ${glowIntensity * 0.4})`,
                 borderLeft:
-                  control.color === 'green'
-                    ? '1px solid rgba(52, 211, 153, 0.3)'
-                    : '1px solid rgba(6, 182, 212, 0.3)',
+                  control.color === 'green' ? '1px solid rgba(52, 211, 153, 0.3)' : '1px solid rgba(6, 182, 212, 0.3)',
                 borderTop:
-                  control.color === 'green'
-                    ? '1px solid rgba(52, 211, 153, 0.3)'
-                    : '1px solid rgba(6, 182, 212, 0.3)',
+                  control.color === 'green' ? '1px solid rgba(52, 211, 153, 0.3)' : '1px solid rgba(6, 182, 212, 0.3)',
               }}
               onClick={control.onclickValue}
             >
-              <div className="w-full flex justify-start items-center gap-4 mb-2">
+              <div className="w-full flex justify-start items-center gap-4 mb-12">
                 {control.Extra}
                 <span className="text-white/90 text-sm">{control.ExtraText}</span>
               </div>
@@ -335,82 +295,12 @@ const RightSideTop = ({ glowIntensity }) => {
         </div>
       </div>
  
-        <div className={`fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex justify-center items-center ${showcall ? '' : 'hidden'}`}>
-          <div
-            className="bg-gradient-to-br from-green-500/5 to-cyan-500/5 border border-green-600 text-green-200 rounded-2xl p-6 w-4xl h-4/5  min-h-72 shadow-[0_0_6px_#00ff88] flex flex-col justify-between items-center"
-            onClick={e => e.stopPropagation()}
-          >
-            <div className="w-full flex justify-end mb-2">
-              <X onClick={handleCloseCall} className="cursor-pointer" />
-            </div>
-
-            <div className="w-full flex justify-center items-center min-h-[200px]">
-              {hasError ? (
-                <div className="text-red-400 text-center text-sm">
-                  Failed to load Call UI. Please try again later.
-                </div>
-              ) : !isLoaded ? (
-                <div className="text-green-300 animate-pulse text-center">Loading Call UI...</div>
-              ) : (
-                <div id="call-container" className="w-4xl h-full min-h-72" />
-              )}
-            </div>
-          </div>
-        </div> 
- 
-        <div
-          className={`fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex justify-center items-center ${showchat ? '' : 'hidden'}`}
-        >
-          <div
-            className="bg-gradient-to-br from-green-500/5 to-cyan-500/5 border border-green-600 text-green-200 rounded-2xl p-6 w-4xl h-4/5  min-h-72 shadow-[0_0_6px_#00ff88] flex flex-col justify-between items-center"
-            onClick={e => e.stopPropagation()}
-          >
-            <div className="w-full flex justify-end mb-2">
-              <X onClick={handleCloseChat} className="cursor-pointer" />
-            </div>
-
-            <div className="w-full flex justify-center items-center min-h-[200px]">
-              {hasError ? (
-                <div className="text-red-400 text-center text-sm">
-                  Failed to load Call UI. Please try again later.
-                </div>
-              ) : !isLoaded ? (
-                <div className="text-green-300 animate-pulse text-center">Loading Call UI...</div>
-              ) : (
-                <div id="vis-chat" className="w-4xl h-full min-h-72  scrollbar-hide" />
-              )}
-            </div>
-          </div>
-        </div>
- 
-        <div
-          className={`fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex justify-center items-center ${showVideo ? '' : 'hidden'}`}
-        >
-          <div
-            className="bg-gradient-to-br from-green-500/5 to-cyan-500/5 border border-green-600 text-green-200 rounded-2xl p-6 w-4xl h-4/5  min-h-72 shadow-[0_0_6px_#00ff88] flex flex-col justify-between items-center"
-            onClick={e => e.stopPropagation()}
-          >
-            <div className="w-full flex justify-end mb-2">
-              <X onClick={handleCloseVideo} className="cursor-pointer" />
-            </div>
-
-            <div className="w-full flex justify-center items-center min-h-[200px]">
-              {hasError ? (
-                <div className="text-red-400 text-center text-sm">
-                  Failed to load Call UI. Please try again later.
-                </div>
-              ) : !isLoaded ? (
-                <div className="text-green-300 animate-pulse text-center">Loading Call UI...</div>
-              ) : (
-                <div id="video-chat" className="w-full" />
-              )}
-            </div>
-          </div>
-        </div> 
-
-        {InteractiveDemo1 && <InteractiveDemo url = {'https://app.supademo.com/embed/cm9816bor003q3r0i2j33ooe9?embed_v=2'} onClose = {handleInteractiveDemo1Close} />}
-        {InteractiveDemo2 && <InteractiveDemo url = {'https://app.supademo.com/embed/cm982foyc004n1o0ihxdb4jyo?embed_v=2'} onClose = {handleInteractiveDemo2Close} />}
-        {InteractiveDemo3 && <InteractiveDemo url = {'https://app.supademo.com/embed/cm9837e26009t1o0ieyhu6asm?embed_v=2'} onClose = {handleInteractiveDemo3Close} />}
+      <CallModal id={'call-container'} hasError={hasError} onclose={handleCloseCall} tag={showcall} isLoaded={isLoaded} />
+      <CallModal id={'vis-chat'} hasError={hasError} onclose={handleCloseChat} tag={showchat} isLoaded={isLoaded} />
+      <CallModal id={'video-chat'} hasError={hasError} onclose={handleCloseVideo} tag={showVideo} isLoaded={isLoaded} />
+      {InteractiveDemo1 && ( <InteractiveDemo url={'https://app.supademo.com/embed/cm9837e26009t1o0ieyhu6asm?embed_v=2'} onClose={handleInteractiveDemo1Close} text={'Welcome to Agent Console'} />  )}
+      {InteractiveDemo2 && (<InteractiveDemo  url={'https://app.supademo.com/embed/cm9816bor003q3r0i2j33ooe9?embed_v=2'} onClose={handleInteractiveDemo2Close} text={'Get An Overview of reports'}  /> )}
+      {InteractiveDemo3 && (<InteractiveDemo  url={'https://app.supademo.com/embed/cm982foyc004n1o0ihxdb4jyo?embed_v=2'} onClose={handleInteractiveDemo3Close} text={'Get an Quick overview of quality assurance'} /> )}
     </>
   );
 };

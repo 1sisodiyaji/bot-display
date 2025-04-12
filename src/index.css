@@ -3,6 +3,7 @@
 body {
   font-family: 'Roboto', sans-serif !important;
 }
+
 .roboto {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -12,15 +13,15 @@ body {
 html {
   scroll-behavior: smooth;
 }
---webkit::-scrollbar{
-  width: 0px;
-};
+
+--webkit::-scrollbar {width: 0px;};
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -32,10 +33,19 @@ html {
     opacity: 1;
     transform: translateY(0);
   }
+
   to {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-20px);
   }
+}
+
+.effect-fadeIn {
+  animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+.effect-fadeOut {
+  animation: fadeOut 0.4s ease-in-out forwards;
 }
 
 #call_eastChat2 {
@@ -43,7 +53,7 @@ html {
 }
 
 .scrollbar-hide {
-  scrollbar-width: none;
+  scrollbar-width: none !important;
   -ms-overflow-style: none;
 }
 
@@ -51,20 +61,24 @@ html {
   display: none;
 }
 
-.iframeBox{
+.iframeBox {
   position: relative;
   box-sizing: content-box;
-  max-height: 80vh; 
-  max-height: 80svh; 
-  width: 100%; 
-  aspect-ratio: 1.9672131147540983; 
-  padding: 40px 0 40px 0;
+  max-height: 80vh;
+  max-height: 80svh;
+  width: 100%;
+  aspect-ratio: 1.9672131147540983;
+  padding: 0px 0 40px 0;
 }
 
-.iframeInner{
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  width: 100%; 
+.iframeInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
+}
+
+.chat-history {
+  background: pink !important;
 }
