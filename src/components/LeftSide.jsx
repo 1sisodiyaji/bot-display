@@ -47,12 +47,14 @@ const LeftSide = () => {
           ))}
         </div>
         <div className="mt-4 border border-green-900/30 rounded-lg p-3 bg-black/50 h-1/6 overflow-hidden text-cyan-200">
+         <a href='https://radius-ois.ai' target='blank'>
           <img
             src="https://radius-ois.ai/wp-content/uploads/2025/04/white-final.png"
             className="w-full h-full object-contain"
             alt="radius logo white"
             loading="lazy"
           />
+          </a>
         </div>
       </div>
     </>
