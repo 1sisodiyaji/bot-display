@@ -14,7 +14,6 @@ const RightSideTop = ({ glowIntensity }) => {
   const [InteractiveDemo3, setInteractiveDemo3] = useState(false);
 
   const handleOpenCallOperation = () => {
-    if (!isLoaded) return;
     setShowCall(true);
     setTimeout(() => {
       window.callSubmit?.();
@@ -26,7 +25,6 @@ const RightSideTop = ({ glowIntensity }) => {
   };
 
   const handleOpenChatOperation = () => {
-    if (!isLoaded) return;
     setShowChat(true);
     window.chatSubmit?.();
   };
@@ -37,7 +35,6 @@ const RightSideTop = ({ glowIntensity }) => {
   };
 
   const handleOpenVideoOperation = () => {
-    if (!isLoaded) return;
     setShowVideo(true);
     window.videoSubmit?.();
   };
