@@ -8,23 +8,6 @@ const App = () => {
   const [glowIntensity, setGlowIntensity] = useState(0.6);
   const [activeSection, setActiveSection] = useState(null);
 
-  const enterFullscreen = () => {
-    const el = document.documentElement;
-    if (el.requestFullscreen) {
-      el.requestFullscreen();
-    } else if (el.webkitRequestFullscreen) {
-      el.webkitRequestFullscreen();
-    } else if (el.msRequestFullscreen) {
-      el.msRequestFullscreen();
-    } else {
-      alert('Fullscreen API is not supported in this browser.');
-    }
-  };
-  useEffect(() => {
-    enterFullscreen();
-  }, []);
-
-
   useEffect(() => {
     const interval = setInterval(() => {
       setGlowIntensity(prev => {

@@ -213,7 +213,7 @@ const RightSideTop = ({ glowIntensity }) => {
             {
               name: 'Video',
               Extra: <RadioIcon size={16} className="text-red-500 animate-pulse" />,
-              ExtraText: 'CONNECT WITH AGENT',
+              ExtraText: 'LIVE',
               icon: <VideoIcon size={32} />,
               color: 'green',
               onclickValue: handleOpenVideoOperation,
