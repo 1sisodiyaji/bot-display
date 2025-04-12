@@ -290,10 +290,74 @@ const RightSideTop = ({ glowIntensity }) => {
           ))}
         </div>
       </div>
-      <div className="" id='vis-chat'></div>
-      <Modal id={'call-container'} hasError={hasError} onclose={handleCloseCall} tag={showcall} isLoaded={isLoaded} text={'Call'} />
-      <Modal id={'vis-chat2'} hasError={hasError} onclose={handleCloseChat} tag={showchat} isLoaded={isLoaded} text={'Chat'} />
-      <Modal id={'video-chat'} hasError={hasError} onclose={handleCloseVideo} tag={showVideo} isLoaded={isLoaded} text={'Video'} />
+
+ 
+ {/* call  */}
+      <div  className={`fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex justify-center items-center ${showcall ? '' : 'hidden'}`}  >
+      <div
+        className="bg-gradient-to-br from-green-500/5 to-cyan-500/5 border border-green-600 text-green-200 rounded-2xl p-1 w-11/12 min-h-4/5 shadow-[0_0_6px_#00ff88] flex flex-col justify-between items-center relative scrollbar-hide"
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="mb-2 absolute -top-6 -right-4  bg-red-200 inline rounded-full p-2 z-20 active:scale-85">
+          <X onClick={handleCloseCall} className="cursor-pointer text-red-400" />
+        </div>
+
+        <div className="w-full flex justify-center items-center min-h-[200px]">
+          {hasError ? (
+            <div className="text-red-400 text-center text-sm">Failed to load Call UI. Please try again later.</div>
+          ) : !isLoaded ? (
+            <div className="text-green-300 animate-pulse text-center">Loading Call UI...</div>
+          ) : (
+            <div id="call-container" className="w-full min-h-96 h-[79vh] rounded-md" />
+          )}
+        </div>
+      </div>
+    </div>
+      
+      {/* chat   */}
+    <div  className={`fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex justify-center items-center ${showchat ? '' : 'hidden'}`}  >
+      <div
+        className="bg-gradient-to-br from-green-500/5 to-cyan-500/5 border border-green-600 text-green-200 rounded-2xl p-1 w-11/12 min-h-4/5 shadow-[0_0_6px_#00ff88] flex flex-col justify-between items-center relative scrollbar-hide"
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="mb-2 absolute -top-6 -right-4  bg-red-200 inline rounded-full p-2 z-20 active:scale-85">
+          <X onClick={handleCloseChat} className="cursor-pointer text-red-400" />
+        </div>
+
+        <div className="w-full flex justify-center items-center min-h-[200px]">
+          {hasError ? (
+            <div className="text-red-400 text-center text-sm">Failed to load Chat UI. Please try again later.</div>
+          ) : !isLoaded ? (
+            <div className="text-green-300 animate-pulse text-center">Loading Chat UI...</div>
+          ) : (
+            <div id="vis-chat" className="w-full min-h-96 h-[79vh] rounded-md" />
+          )}
+        </div>
+      </div>
+    </div>
+      
+      {/* Video  */}
+    <div  className={`fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex justify-center items-center ${showVideo ? '' : 'hidden'}`}  >
+      <div
+        className="bg-gradient-to-br from-green-500/5 to-cyan-500/5 border border-green-600 text-green-200 rounded-2xl p-1 w-11/12 min-h-4/5 shadow-[0_0_6px_#00ff88] flex flex-col justify-between items-center relative scrollbar-hide"
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="mb-2 absolute -top-6 -right-4  bg-red-200 inline rounded-full p-2 z-20 active:scale-85">
+          <X onClick={handleCloseVideo} className="cursor-pointer text-red-400" />
+        </div>
+
+        <div className="w-full flex justify-center items-center min-h-[200px]">
+          {hasError ? (
+            <div className="text-red-400 text-center text-sm">Failed to load Video UI. Please try again later.</div>
+          ) : !isLoaded ? (
+            <div className="text-green-300 animate-pulse text-center">Loading Video UI...</div>
+          ) : (
+            <div id="video-chat" className="w-full min-h-96 h-[79vh] rounded-md" />
+          )}
+        </div>
+      </div>
+    </div>
+      
       {InteractiveDemo1 && (<InteractiveDemo url={'https://app.supademo.com/embed/cm9837e26009t1o0ieyhu6asm?embed_v=2'} onClose={handleInteractiveDemo1Close} text={'Welcome to Agent Console'} />)}
       {InteractiveDemo2 && (<InteractiveDemo url={'https://app.supademo.com/embed/cm9816bor003q3r0i2j33ooe9?embed_v=2'} onClose={handleInteractiveDemo2Close} text={'Get An Overview of reports'} />)}
       {InteractiveDemo3 && (<InteractiveDemo url={'https://app.supademo.com/embed/cm982foyc004n1o0ihxdb4jyo?embed_v=2'} onClose={handleInteractiveDemo3Close} text={'Get an Quick overview of quality assurance'} />)}
