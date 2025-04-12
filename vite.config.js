@@ -19,17 +19,17 @@ export default defineConfig({
         start_url: '/',
         icons: [
           {
-            src: '/android-chrome-192x192.png',
+            src: '/favicon.webp',
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: '/android-chrome-512x512.png',
+            src: '/favicon.webp',
             sizes: '512x512',
             type: 'image/png'
           },
           {
-            src: '/android-chrome-512x512.png',
+            src: '/favicon.webp',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable'
@@ -37,9 +37,5 @@ export default defineConfig({
         ]
       }
     }),
-  ],
-    server:{           
-      port: 3001
-    }    
-  
+  ]
 });
