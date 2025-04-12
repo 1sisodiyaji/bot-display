@@ -31,8 +31,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.5.0",
     "prettier": "^3.5.3",
-    "vite": "^6.2.0",
-    "vite-plugin-strip": "^1.1.0"
+    "vite": "^6.2.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
