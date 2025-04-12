@@ -14,7 +14,6 @@ const RightSideTop = ({ glowIntensity }) => {
   const [InteractiveDemo3, setInteractiveDemo3] = useState(false);
 
   const handleOpenCallOperation = () => {
-    if(!isLoaded) return;
     setShowCall(true);
     setTimeout(() => {
       window.callSubmit?.();
