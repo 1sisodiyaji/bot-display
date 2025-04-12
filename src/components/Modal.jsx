@@ -15,7 +15,7 @@ const Modal = ({ id, onclose, tag }) => {
           <X onClick={onclose} className="cursor-pointer text-red-400" />
         </div>
 
-        <div className="w-full flex justify-center items-center min-h-[200px] ">
+        <div className="w-full flex justify-center items-center min-h-[90vh]">
           <div id={id} className="w-full min-h-96 h-full rounded-md m-auto" />
         </div>
       </div>

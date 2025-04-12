@@ -165,7 +165,7 @@ const App = () => {
                       onclickValue: handleOpenChatOperation,
                     },
                     {
-                      Extra: <Computer size={16} className="text-red-500 animate-pulse" />,
+                      Extra: <Computer size={16} className="text-amber-500 animate-pulse" />,
                       ExtraText: 'DEMO',
                       name: 'Agent Console',
                       icon: <UserCheck size={48} />,
@@ -173,7 +173,7 @@ const App = () => {
                       onclickValue: handleInteractiveDemo1,
                     },
                     {
-                      Extra: <Computer size={16} className="text-red-500 animate-pulse" />,
+                      Extra: <Computer size={16} className="text-amber-500 animate-pulse" />,
                       ExtraText: 'DEMO',
                       name: 'Reporting Tool',
                       icon: <FileCheck2 size={48} />,
@@ -181,7 +181,7 @@ const App = () => {
                       onclickValue: handleInteractiveDemo2,
                     },
                     {
-                      Extra: <Computer size={16} className="text-red-500 animate-pulse" />,
+                      Extra: <Computer size={16} className="text-amber-500 animate-pulse" />,
                       ExtraText: 'DEMO',
                       name: 'Playback and QA Tool',
                       icon: <AudioLines size={48} />,
