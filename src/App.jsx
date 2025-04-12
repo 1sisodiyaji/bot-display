@@ -3,11 +3,34 @@ import LeftSide from './components/LeftSide';
 import RightSideTop from './components/RightSideTop';
 import BookAMeeting from './components/BookAMeeting';
 import SurveyBox from './components/SurveyBox';
+import { Fullscreen ,X} from 'lucide-react';
 
 const App = () => {
   const [glowIntensity, setGlowIntensity] = useState(0.6);
   const [activeSection, setActiveSection] = useState(null);
+  const [showFullScreen , setShowFullScreen] = useState(false);
 
+  const toggleFullscreen = () => {
+    setShowFullScreen(!showFullScreen);
+    const el = document.documentElement;
+    if (!document.fullscreenElement) { 
+      if (el.requestFullscreen) {
+        el.requestFullscreen();
+      } else if (el.webkitRequestFullscreen) {
+        el.webkitRequestFullscreen();
+      } else if (el.msRequestFullscreen) {
+        el.msRequestFullscreen();
+      }
+    } else { 
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
+    }
+  }
   useEffect(() => {
     const interval = setInterval(() => {
       setGlowIntensity(prev => {
@@ -27,6 +50,19 @@ const App = () => {
     setActiveSection(null);
   };
   return (
+    <> 
+    <button
+      onClick={toggleFullscreen}
+      className="absolute top-0 right-0 z-[100] cursor-pointer rounded-lg p-2 hover:bg-cyan-900/20 transition"
+    >
+      {showFullScreen ? (
+        <X className="text-xl text-cyan-400" />
+      ) : (
+        <Fullscreen className="text-xl text-cyan-400" />
+      )}
+    </button>
+
+
     <div className="flex justify-center items-center  bg-black font-roboto relative overflow-hidden">
 
       {/* Animated background elements */}
@@ -116,6 +152,7 @@ const App = () => {
         }}
       />
     </div>
+    </>
   );
 };
 
