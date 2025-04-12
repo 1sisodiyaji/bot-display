@@ -1,4 +1,4 @@
-import { AudioLines, FileCheck2, MessageSquare, Phone, RadioIcon, UserCheck, VideoIcon, X } from 'lucide-react';
+import { AudioLines, Computer, FileCheck2, MessageSquare, Phone, RadioIcon, UserCheck, VideoIcon, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import InteractiveDemo from './InteractiveDemo';
 import Modal from './CallModal';
@@ -14,7 +14,7 @@ const RightSideTop = ({ glowIntensity }) => {
   const [InteractiveDemo3, setInteractiveDemo3] = useState(false);
 
   const handleOpenCallOperation = () => {
-    if(!isLoaded) return;
+    if (!isLoaded) return;
     setShowCall(true);
     setTimeout(() => {
       window.callSubmit?.();
@@ -26,7 +26,7 @@ const RightSideTop = ({ glowIntensity }) => {
   };
 
   const handleOpenChatOperation = () => {
-    if(!isLoaded) return;
+    if (!isLoaded) return;
     setShowChat(true);
     window.chatSubmit?.();
   };
@@ -37,7 +37,7 @@ const RightSideTop = ({ glowIntensity }) => {
   };
 
   const handleOpenVideoOperation = () => {
-    if(!isLoaded) return;
+    if (!isLoaded) return;
     setShowVideo(true);
     window.videoSubmit?.();
   };
@@ -214,51 +214,55 @@ const RightSideTop = ({ glowIntensity }) => {
               name: 'Video',
               Extra: <RadioIcon size={16} className="text-red-500 animate-pulse" />,
               ExtraText: 'LIVE',
-              icon: <VideoIcon size={32} />,
+              icon: <VideoIcon size={48} />,
               color: 'green',
               onclickValue: handleOpenVideoOperation,
             },
             {
               name: 'Call',
               Extra: <RadioIcon size={16} className="text-red-500 animate-pulse" />,
-              ExtraText: 'CONNECT WITH AGENT',
-              icon: <Phone size={32} />,
+              ExtraText: 'LIVE',
+              icon: <Phone size={48} />,
               color: 'cyan',
               onclickValue: handleOpenCallOperation,
             },
             {
+              
               name: 'Chat',
               Extra: <RadioIcon size={16} className="text-red-500 animate-pulse" />,
-              ExtraText: 'CONNECT WITH AGENT',
-              icon: <MessageSquare size={32} />,
+              ExtraText: 'LIVE',
+              icon: <MessageSquare size={48} />,
               color: 'green',
               onclickValue: handleOpenChatOperation,
             },
             {
+              Extra: <Computer size={16} className="text-red-500 animate-pulse" />,
+              ExtraText: 'DEMO',
               name: 'Agent Console',
-              subheading: 'Interactive Demo',
-              icon: <UserCheck size={32} />,
+              icon: <UserCheck size={48} />,
               color: 'cyan',
               onclickValue: handleInteractiveDemo1,
             },
             {
+              Extra: <Computer size={16} className="text-red-500 animate-pulse" />,
+              ExtraText: 'DEMO',
               name: 'Reporting Tool',
-              subheading: 'Interactive Demo',
-              icon: <FileCheck2 size={32} />,
+              icon: <FileCheck2 size={48} />,
               color: 'green',
               onclickValue: handleInteractiveDemo2,
             },
             {
+              Extra: <Computer size={16} className="text-red-500 animate-pulse" />,
+              ExtraText: 'DEMO',
               name: 'Playback and QA Tool',
-              subheading: 'Interactive Demo',
-              icon: <AudioLines size={32} />,
+              icon: <AudioLines size={48} />,
               color: 'cyan',
               onclickValue: handleInteractiveDemo3,
             },
           ].map((control, idx) => (
             <div
               key={idx}
-              className={`rounded-xl flex flex-col justify-center items-center p-4 cursor-pointer group active:scale-105 transition-transform duration-300 ease-in-out shadow-lg active:shadow-inner`}
+              className={`rounded-xl flex flex-col justify-center items-center space-y-4 p-4 cursor-pointer group active:scale-105 transition-transform duration-300 ease-in-out shadow-lg active:shadow-inner`}
               style={{
                 background: 'rgba(0,0,0,0.6)',
                 boxShadow:
@@ -272,35 +276,30 @@ const RightSideTop = ({ glowIntensity }) => {
               }}
               onClick={control.onclickValue}
             >
-              <div className="w-full flex justify-start items-center gap-4 mb-12">
+              <div className="w-full flex justify-center items-center gap-4">
                 {control.Extra}
                 <span className="text-white/90 text-sm">{control.ExtraText}</span>
               </div>
 
-              <div
-                className={`mb-4 ${control.color === 'green' ? 'text-green-400' : 'text-cyan-400'} group-hover:scale-110 transition-transform duration-300`}
-              >
+              <div className={`${control.color === 'green' ? 'text-green-400' : 'text-cyan-400'} group-hover:scale-110 transition-transform duration-300`} >
                 {control.icon}
               </div>
               <div
                 className={`text-sm font-light ${control.color === 'green' ? 'text-green-300' : 'text-cyan-300'} tracking-wider uppercase text-nowrap`}
               >
                 {control.name}
-              </div>
-              <div className={`text-xs font-light text-white tracking-wider uppercase text-nowrap`}>
-                {control.subheading}
-              </div>
+              </div> 
             </div>
           ))}
         </div>
       </div>
- 
-      <Modal id={'call-container'} hasError={hasError} onclose={handleCloseCall} tag={showcall} isLoaded={isLoaded} text= {'Call'}/>
-      <Modal id={'vis-chat'} hasError={hasError} onclose={handleCloseChat} tag={showchat} isLoaded={isLoaded}  text= {'Chat'} />
-      <Modal id={'video-chat'} hasError={hasError} onclose={handleCloseVideo} tag={showVideo} isLoaded={isLoaded}   text= {'Video'} />
-      {InteractiveDemo1 && ( <InteractiveDemo url={'https://app.supademo.com/embed/cm9837e26009t1o0ieyhu6asm?embed_v=2'} onClose={handleInteractiveDemo1Close} text={'Welcome to Agent Console'} />  )}
-      {InteractiveDemo2 && (<InteractiveDemo  url={'https://app.supademo.com/embed/cm9816bor003q3r0i2j33ooe9?embed_v=2'} onClose={handleInteractiveDemo2Close} text={'Get An Overview of reports'}  /> )}
-      {InteractiveDemo3 && (<InteractiveDemo  url={'https://app.supademo.com/embed/cm982foyc004n1o0ihxdb4jyo?embed_v=2'} onClose={handleInteractiveDemo3Close} text={'Get an Quick overview of quality assurance'} /> )}
+
+      <Modal id={'call-container'} hasError={hasError} onclose={handleCloseCall} tag={showcall} isLoaded={isLoaded} text={'Call'} />
+      <Modal id={'vis-chat'} hasError={hasError} onclose={handleCloseChat} tag={showchat} isLoaded={isLoaded} text={'Chat'} />
+      <Modal id={'video-chat'} hasError={hasError} onclose={handleCloseVideo} tag={showVideo} isLoaded={isLoaded} text={'Video'} />
+      {InteractiveDemo1 && (<InteractiveDemo url={'https://app.supademo.com/embed/cm9837e26009t1o0ieyhu6asm?embed_v=2'} onClose={handleInteractiveDemo1Close} text={'Welcome to Agent Console'} />)}
+      {InteractiveDemo2 && (<InteractiveDemo url={'https://app.supademo.com/embed/cm9816bor003q3r0i2j33ooe9?embed_v=2'} onClose={handleInteractiveDemo2Close} text={'Get An Overview of reports'} />)}
+      {InteractiveDemo3 && (<InteractiveDemo url={'https://app.supademo.com/embed/cm982foyc004n1o0ihxdb4jyo?embed_v=2'} onClose={handleInteractiveDemo3Close} text={'Get an Quick overview of quality assurance'} />)}
     </>
   );
 };

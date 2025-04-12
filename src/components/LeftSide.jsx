@@ -38,8 +38,8 @@ const LeftSide = () => {
               {metric.icon}
             </div>
             <div className="flex flex-col">
-              <span className="text-xs font-medium text-gray-500">{metric.label}</span>
-              <span className="text-2xl font-bold text-cyan-600">{metric.data}</span>
+            <span className="text-2xl font-bold text-cyan-600">{metric.data}</span>
+              <span className="text-xs font-medium text-white leading-6 tracking-wider">{metric.label}</span> 
             </div>
           </div>
             </div>

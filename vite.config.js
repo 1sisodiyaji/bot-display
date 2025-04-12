@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.webp', 'apple-touch-icon.png'],
+      includeAssets: ['favicon.webp'],
       manifest: {
         name: 'Radius Bot Dashboard',
         short_name: 'Radius',

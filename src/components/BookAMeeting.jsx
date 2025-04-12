@@ -19,7 +19,7 @@ const BookAMeeting = () => {
           BOOK A DEMO
           <div className="flex gap-2 items-center">
             <CircleDot className="w-4 text-green-400" />{' '}
-            <p className="text-xs text-cyan-300/80 animate-pulse">12 SLOTS AVAILABLE </p>
+            <p className="text-xs text-cyan-300/80 animate-pulse font-light">PERSONALIZED DEMOS </p>
           </div>
         </div>
         <CalendarArrowUp className="w-24 h-24 text-green-400/80 animate-pulse place-self-end" />
