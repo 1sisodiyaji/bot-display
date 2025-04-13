@@ -21,30 +21,17 @@ const App = () => {
     setTimeout(() => {
       window.callSubmit?.();
     }, [1000]);
-  };
-  const handleCloseCall = () => {
-    window.location.reload();
-    setShowCall(false);
-  };
+  }; 
 
   const handleOpenChatOperation = () => {
     setShowChat(true);
     window.chatSubmit?.();
-  };
-
-  const handleCloseChat = () => {
-    setShowChat(false);
-    window.location.reload();
-  };
+  }; 
 
   const handleOpenVideoOperation = () => {
     setShowVideo(true);
     window.videoSubmit?.();
-  };
-  const handleCloseVideo = () => {
-    setShowVideo(false);
-    window.location.reload();
-  };
+  }; 
 
   const handleInteractiveDemo1 = () => setInteractiveDemo1(true);
   const handleInteractiveDemo1Close = () => setInteractiveDemo1(false);
@@ -221,9 +208,7 @@ const App = () => {
                     </div>
                   ))}
                 </div>
-              </div>
-
-
+              </div> 
             </div>
 
             {/* Bottom right sections - Book a Meeting */}
@@ -259,8 +244,7 @@ const App = () => {
         </div>
 
         {/* Background */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-20"
+        <div  className="absolute inset-0 pointer-events-none opacity-20"
           style={{
             border: `1px solid rgba(52, 211, 153, ${glowIntensity})`,
             boxShadow: `inset 0 0 ${100 * glowIntensity}px rgba(52, 211, 153, ${glowIntensity * 0.5})`,
@@ -269,14 +253,12 @@ const App = () => {
       </div>
 
 
-      <Modal onclose={handleCloseCall} tag={showcall} id={'call-container'} />
-      <Modal onclose={handleCloseChat} tag={showchat} id={'vis-chat'} />
-      <Modal onclose={handleCloseVideo} tag={showVideo} id={'video-chat'} />
+      <Modal  tag={showcall} id={'call-container'} />
+      <Modal  tag={showchat} id={'vis-chat'} />
+      <Modal  tag={showVideo} id={'video-chat'} />
       {InteractiveDemo1 && (<InteractiveDemo url={'https://app.supademo.com/embed/cm9837e26009t1o0ieyhu6asm?embed_v=2'} onClose={handleInteractiveDemo1Close} text={'Welcome to Agent Console'} />)}
       {InteractiveDemo2 && (<InteractiveDemo url={'https://app.supademo.com/embed/cm9816bor003q3r0i2j33ooe9?embed_v=2'} onClose={handleInteractiveDemo2Close} text={'Get An Overview of reports'} />)}
       {InteractiveDemo3 && (<InteractiveDemo url={'https://app.supademo.com/embed/cm982foyc004n1o0ihxdb4jyo?embed_v=2'} onClose={handleInteractiveDemo3Close} text={'Get an Quick overview of quality assurance'} />)}
-
-
     </>
   );
 };

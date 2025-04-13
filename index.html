@@ -46,42 +46,52 @@
       text-align: center;
     }
 
-    .loader {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      position: relative;
+    .ellipsis-icon {
+      width: 80px;
+      height: 80px;
       margin: 0 auto;
+      stroke: #00ff88;
+      display: block;
+      animation: pulse 1.5s infinite ease-in-out;
     }
 
-    .loader:before,
-    .loader:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      border: 5px solid transparent;
-      border-top-color: #00ff88;
+    .ellipsis-icon circle {
+      animation: bounce 1.5s infinite ease-in-out;
     }
 
-    .loader:before {
-      z-index: 100;
-      animation: spin 1s infinite;
+    .ellipsis-icon circle:nth-child(1) {
+      animation-delay: 0s;
     }
 
-    .loader:after {
-      border: 5px solid rgba(0, 255, 136, 0.2);
+    .ellipsis-icon circle:nth-child(2) {
+      animation-delay: 0.2s;
     }
 
-    @keyframes spin {
+    .ellipsis-icon circle:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes pulse {
       0% {
-        transform: rotate(0deg);
+        transform: scale(0.95);
+        opacity: 0.7;
+      }
+      50% {
+        transform: scale(1);
+        opacity: 1;
       }
       100% {
-        transform: rotate(360deg);
+        transform: scale(0.95);
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
       }
     }
 
@@ -107,7 +117,11 @@
 <body> 
   <div id="preloader">
     <div class="preloader-content">
-      <div class="loader"></div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ellipsis-icon">
+        <circle cx="5" cy="12" r="2"/>
+        <circle cx="12" cy="12" r="2"/>
+        <circle cx="19" cy="12" r="2"/>
+      </svg>
       <div class="loader-text">Welcome To RADIUS</div>
     </div>
   </div>
@@ -230,7 +244,7 @@
       preloader.style.opacity = '0';
       setTimeout(() => {
         preloader.style.display = 'none';
-      }, 500);
+      }, 5000);
     }, 5000);
   </script>
 </body>
