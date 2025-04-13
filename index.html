@@ -4,29 +4,33 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Radius</title>
-  <meta name="description" content="Radius is an AI-powered multichannel assistant offering 24/7 support, seamless integrations, and a futuristic user experience." />
-  <meta name="keywords" content="Radius, AI assistant, customer support, chatbot, multichannel support, 24/7 support, futuristic dashboard, Radius AI" />
+  <meta name="description"
+    content="Radius is an AI-powered multichannel assistant offering 24/7 support, seamless integrations, and a futuristic user experience." />
+  <meta name="keywords"
+    content="Radius, AI assistant, customer support, chatbot, multichannel support, 24/7 support, futuristic dashboard, Radius AI" />
   <meta name="author" content="Radius Team" />
-  <meta name="robots" content="index, follow" /> 
+  <meta name="robots" content="index, follow" />
   <meta property="og:title" content="Radius - The AI Multichannel Assistant" />
-  <meta property="og:description" content="Radius offers futuristic, always-on customer support across multiple channels with smart integrations and a sleek UI." />
+  <meta property="og:description"
+    content="Radius offers futuristic, always-on customer support across multiple channels with smart integrations and a sleek UI." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://radius-ois.ai" />
   <meta property="og:image" content="https://radius-ois.ai/apple-touch-icon.png" />
-  <meta property="og:site_name" content="Radius" /> 
+  <meta property="og:site_name" content="Radius" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Radius - The AI Multichannel Assistant" />
-  <meta name="twitter:description" content="Explore Radius – your 24/7 smart support bot with multichannel integration and stunning futuristic UI." />
+  <meta name="twitter:description"
+    content="Explore Radius – your 24/7 smart support bot with multichannel integration and stunning futuristic UI." />
   <meta name="twitter:image" content="https://radius-ois.ai/apple-touch-icon.png" />
   <meta name="twitter:site" content="@radiusaisupport" />
-  <meta name="twitter:creator" content="@radiusaisupport" /> 
+  <meta name="twitter:creator" content="@radiusaisupport" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet" /> 
+    rel="stylesheet" />
   <style>
     #preloader {
       position: fixed;
@@ -76,10 +80,12 @@
         transform: scale(0.95);
         opacity: 0.7;
       }
+
       50% {
         transform: scale(1);
         opacity: 1;
       }
+
       100% {
         transform: scale(0.95);
         opacity: 0.7;
@@ -87,9 +93,12 @@
     }
 
     @keyframes bounce {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0);
       }
+
       50% {
         transform: translateY(-5px);
       }
@@ -114,13 +123,14 @@
   </style>
 </head>
 
-<body> 
+<body>
   <div id="preloader">
     <div class="preloader-content">
-      <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ellipsis-icon">
-        <circle cx="5" cy="12" r="2"/>
-        <circle cx="12" cy="12" r="2"/>
-        <circle cx="19" cy="12" r="2"/>
+      <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ellipsis-icon">
+        <circle cx="5" cy="12" r="2" />
+        <circle cx="12" cy="12" r="2" />
+        <circle cx="19" cy="12" r="2" />
       </svg>
       <div class="loader-text">Welcome To RADIUS</div>
     </div>
@@ -129,20 +139,20 @@
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 
-  <script> 
+  <script>
     let scriptsLoaded = {
       esyChat: false,
       callNow: false,
       ruvoChat: false,
       app: false
-    }; 
+    };
 
     function checkAllScriptsLoaded() {
       if (scriptsLoaded.esyChat && scriptsLoaded.callNow && scriptsLoaded.ruvoChat && scriptsLoaded.app) {
         // All scripts are loaded, hide preloader
         const preloader = document.getElementById('preloader');
         document.body.classList.add('loaded');
-        
+
         setTimeout(() => {
           preloader.style.opacity = '0';
           setTimeout(() => {
@@ -151,8 +161,8 @@
         }, 500);
       }
     }
- 
-    window.addEventListener('load', function() {
+
+    window.addEventListener('load', function () {
       scriptsLoaded.app = true;
       checkAllScriptsLoaded();
     });
@@ -160,85 +170,88 @@
 
   <script>
     window.$EsyCht || (function (d, s) {
-        var _e = $EsyCht = function (c) {
+      var _e = $EsyCht = function (c) {
         _e._.push(c)
-        }, $ = _e.s =
+      }, $ = _e.s =
         d.createElement(s), e = d.getElementsByTagName(s)[0];
-        _e.set = function (o) {_e.set._.push(o)
-        };
-        _e._ = [];
-        _e.set._ = [];
-        $.async = !0;
-        $.setAttribute("charset", "utf-8");
-        $.setAttribute("id", "cd");
-        $.src = "https://demo.radius-ois.ai/robowebtools/assets/js/vis435net.js?8de1cacdcda71da3aa79";
-         
-        $.onload = function() {
-          scriptsLoaded.esyChat = true;
-          checkAllScriptsLoaded();
-        };
+      _e.set = function (o) {
+        _e.set._.push(o)
+      };
+      _e._ = [];
+      _e.set._ = [];
+      $.async = !0;
+      $.setAttribute("charset", "utf-8");
+      $.setAttribute("id", "cd");
+      $.src = "http://localhost/webtools/assets/js/vis435net.js?8de1cacdcda71da3aa79";
 
-        _e.t = +new Date;
-        $.type = "text/javascript";
-        e.parentNode.insertBefore($, e)
-        })(document, "script");
+      $.onload = function () {
+        scriptsLoaded.esyChat = true;
+        checkAllScriptsLoaded();
+      };
+
+      _e.t = +new Date;
+      $.type = "text/javascript";
+      e.parentNode.insertBefore($, e)
+    })(document, "script");
   </script>
 
   <script>
-     window.$CallNow || (function (doc_Call, scr_Call) {
-        var _e_CallNow = $CallNow = function (Ruvo_c) {
+    window.$CallNow || (function (doc_Call, scr_Call) {
+      var _e_CallNow = $CallNow = function (Ruvo_c) {
         _e_CallNow._.push(Ruvo_c)
-        }, $ = _e_CallNow.s =
+      }, $ = _e_CallNow.s =
         doc_Call.createElement(scr_Call), e = doc_Call.getElementsByTagName(scr_Call)[0];
-        _e_CallNow.set = function (o) {_e_CallNow.set._.push(o)
-        };
-        _e_CallNow._ = [];
-        _e_CallNow.set._ = [];
-        $.async = !0;
-        $.setAttribute("charset", "utf-8");
-        $.setAttribute("id", "call_now");
-        $.src = "https://demo.radius-ois.ai/robowebtoolscall/assets/js/call_ui.js?e87274b76f0d82e1ffcf";
-        
-        // Add onload event
-        $.onload = function() {
-          scriptsLoaded.callNow = true;
-          checkAllScriptsLoaded();
-        };
+      _e_CallNow.set = function (o) {
+        _e_CallNow.set._.push(o)
+      };
+      _e_CallNow._ = [];
+      _e_CallNow.set._ = [];
+      $.async = !0;
+      $.setAttribute("charset", "utf-8");
+      $.setAttribute("id", "call_now");
+      $.src = "https://demo.radius-ois.ai/robowebtoolscall/assets/js/call_ui.js?e87274b76f0d82e1ffcf";
 
-        _e_CallNow.t = +new Date;
-        $.type = "text/javascript";
-        e.parentNode.insertBefore($, e)
-        })(document, "script");
+      // Add onload event
+      $.onload = function () {
+        scriptsLoaded.callNow = true;
+        checkAllScriptsLoaded();
+      };
+
+      _e_CallNow.t = +new Date;
+      $.type = "text/javascript";
+      e.parentNode.insertBefore($, e)
+    })(document, "script");
   </script>
 
   <script>
-     window.$RuvoChat || (function (doc_RuvoChat, scr_RuvoChat) {
-        var _e_RuvoChat = $RuvoChat = function (Ruvo_c) {
+    window.$RuvoChat || (function (doc_RuvoChat, scr_RuvoChat) {
+      var _e_RuvoChat = $RuvoChat = function (Ruvo_c) {
         _e_RuvoChat._.push(Ruvo_c)
-        }, $ = _e_RuvoChat.s =
+      }, $ = _e_RuvoChat.s =
         doc_RuvoChat.createElement(scr_RuvoChat), e = doc_RuvoChat.getElementsByTagName(scr_RuvoChat)[0];
-        _e_RuvoChat.set = function (o) {_e_RuvoChat.set._.push(o)
-        };
-        _e_RuvoChat._ = [];
-        _e_RuvoChat.set._ = [];
-        $.async = !0;
-        $.setAttribute("charset", "utf-8");
-        $.setAttribute("id", "vd");
-        $.src = "https://demo.radius-ois.ai/robowebtools/assets/js/ruvo_ui.js?8de1cacdcda71da3aa79";
-         
-        $.onload = function() {
-          scriptsLoaded.ruvoChat = true;
-          checkAllScriptsLoaded();
-        };
+      _e_RuvoChat.set = function (o) {
+        _e_RuvoChat.set._.push(o)
+      };
+      _e_RuvoChat._ = [];
+      _e_RuvoChat.set._ = [];
+      $.async = !0;
+      $.setAttribute("charset", "utf-8");
+      $.setAttribute("id", "vd");
+      $.src = "https://demo.radius-ois.ai/robowebtools/assets/js/ruvo_ui.js?8de1cacdcda71da3aa79";
 
-        _e_RuvoChat.t = +new Date;
-        $.type = "text/javascript";
-        e.parentNode.insertBefore($, e)
-        })(document, "script");
+      $.onload = function () {
+        scriptsLoaded.ruvoChat = true;
+        checkAllScriptsLoaded();
+      };
+
+      _e_RuvoChat.t = +new Date;
+      $.type = "text/javascript";
+      e.parentNode.insertBefore($, e)
+    })(document, "script");
   </script>
- 
-  <script> 
-    setTimeout(function() {
+
+  <script>
+    setTimeout(function () {
       const preloader = document.getElementById('preloader');
       document.body.classList.add('loaded');
       preloader.style.opacity = '0';
