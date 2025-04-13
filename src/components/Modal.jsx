@@ -11,7 +11,7 @@ const Modal = ({ id,tag }) => {
         onClick={e => e.stopPropagation()}
       > 
         <div className="w-full flex justify-center items-center min-h-[90vh]">
-          <div id={id} className="w-full min-h-96 h-full rounded-md m-auto" />
+          <div id={id} className="w-full min-h-96 h-full rounded-md m-auto " />
         </div>
       </div>
     </div>,
