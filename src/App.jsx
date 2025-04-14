@@ -23,7 +23,7 @@ const App = () => {
         console.log("entering in the set timeout function");
         console.log(window);
         window.callSubmit?.();
-      }, [2500]); 
+      }, [500]); 
   }
   const handleOpenChatOperation = () => {
     setShowChat(true);
