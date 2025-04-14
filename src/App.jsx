@@ -32,7 +32,7 @@ const App = () => {
           console.log("Fallback: entering in the set timeout function");
           console.log(window);
           window.callSubmit?.();
-        }, 800);
+        }, 500);
       }
   };
 
