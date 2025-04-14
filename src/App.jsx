@@ -17,23 +17,28 @@ const App = () => {
   const [InteractiveDemo3, setInteractiveDemo3] = useState(false);
  
   const handleOpenCallOperation = () => { 
-      console.log("Call Function Clicked");
-      setShowCall(true); 
+    console.log("Call Function Clicked - Device Type:", /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? "Mobile" : "Desktop");
+    setShowCall(true);
+    
+    console.log("ServiceWorker available:", 'serviceWorker' in navigator);
+    console.log("ServiceWorker controller:", navigator.serviceWorker?.controller);
+    
+    if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+      console.log("Using service worker for call scheduling");
+      navigator.serviceWorker.controller.postMessage({
+        type: 'SCHEDULE_CALL',
+        delay: 1000
+      });
+    } else {
+      console.warn("Service worker not controlling the page, falling back to setTimeout");
+      console.log("Window object:", typeof window);
+      console.log("callSubmit function exists:", typeof window.callSubmit);
       
-      if (navigator.serviceWorker && navigator.serviceWorker.controller) { 
-        // Service worker is available and controlling the page
-        navigator.serviceWorker.controller.postMessage({
-          type: 'SCHEDULE_CALL',
-          delay: 500
-        });
-      } else {
-        console.warn("Service worker not controlling the page yet, falling back to setTimeout");
-        setTimeout(() => {
-          console.log("Fallback: entering in the set timeout function");
-          console.log(window);
-          window.callSubmit?.();
-        }, 500);
-      }
+      setTimeout(() => {
+        console.log("Timeout executed on mobile");
+        window.callSubmit?.();
+      }, 1000);
+    }
   };
 
 
