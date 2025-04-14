@@ -6,7 +6,7 @@ const LeftSide = () => {
     <>
       <div className="text-white font-semibold text-lg tracking-wider mb-6">
         <a href="https://radius-ois.ai" target="_blank">
-          ABOUT RADIUS
+          RADIUS
         </a>
       </div>
 

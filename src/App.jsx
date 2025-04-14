@@ -15,7 +15,7 @@ const App = () => {
   const [InteractiveDemo1, setInteractiveDemo1] = useState(false);
   const [InteractiveDemo2, setInteractiveDemo2] = useState(false);
   const [InteractiveDemo3, setInteractiveDemo3] = useState(false);
-  
+
   function isInStandaloneMode() {
     return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
   }
@@ -133,7 +133,7 @@ const App = () => {
 
               {/* Controls content */}
               <div className="flex-1 p-6 flex flex-col">
-                <div className="text-white font-semibold text-lg tracking-wider mb-6">LIVE COMMUNICATION WITH AGENT</div>
+                <div className="text-white font-semibold text-lg tracking-wider mb-6">EXPERIENCE RADIUS</div>
 
                 <div className="flex-1 grid grid-cols-3 gap-6">
                   {[
