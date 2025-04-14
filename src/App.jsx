@@ -18,7 +18,13 @@ const App = () => {
 
   const handleOpenCallOperation = () => {
     setShowCall(true);
-    window.callSubmit?.(); 
+    setTimeout(() => {
+      if (typeof window.callSubmit === 'function') {
+        window.callSubmit();
+      } else {
+        console.warn('callSubmit is not ready');
+      }
+    }, 1000);
   }; 
 
   const handleOpenChatOperation = () => {
