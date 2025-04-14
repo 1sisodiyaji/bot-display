@@ -18,9 +18,7 @@ const App = () => {
 
   const handleOpenCallOperation = () => {
     setShowCall(true);
-    setTimeout(() => {
-      window.callSubmit?.();
-    }, [1000]);
+    window.callSubmit?.(); 
   }; 
 
   const handleOpenChatOperation = () => {
