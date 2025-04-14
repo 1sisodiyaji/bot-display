@@ -43,7 +43,7 @@ const InteractiveDemo = ({ onClose, url ,text}) => {
               webkitallowfullscreen="true"
               mozallowfullscreen="true"
               allowFullScreen
-              className="iframeInner w-full h-[600px] rounded-xl"
+              className="iframeInner w-full h-full rounded-xl"
               onLoad={() => setIsLoaded(true)}
             ></iframe>
           </div>
