@@ -17,8 +17,11 @@ const App = () => {
   const [InteractiveDemo3, setInteractiveDemo3] = useState(false);
  
   const handleOpenCallOperation = () => {
+    console.log("Call FUnction Cliked");
     setShowCall(true); 
       setTimeout(() => {
+        console.log("entering in the set timeout function");
+        console.log(window);
         window.callSubmit?.();
       }, [2500]); 
   }
