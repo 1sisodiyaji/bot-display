@@ -4,7 +4,7 @@ import React from 'react';
 const LeftSide = () => {
   return (
     <>
-      <div className="text-white font-semibold text-lg tracking-wider pb-6 p-2 rounded-t-md border-t border-l border-r border-cyan-400/60">
+      <div className="text-white font-semibold text-lg tracking-wider pb-6 p-2 rounded-t-md border-t border-l border-r border-cyan-400/30">
         <div className="flex items-center gap-4">
           <div className="relative w-full h-12  rounded-t-md overflow-hidden"> 
             <div className="absolute top-1 left-4 w-1 h-1 bg-cyan-300 rounded-full animate-pulse"></div>
@@ -18,7 +18,7 @@ const LeftSide = () => {
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col justify-between p-2   rounded-b-md border-l border-b border-r  border-cyan-400/60">
+      <div className="flex-1 flex flex-col justify-between p-2   rounded-b-md border-l border-b border-r  border-cyan-400/30">
         <div className="grid grid-cols-1 gap-2 w-full">
           {[
 
