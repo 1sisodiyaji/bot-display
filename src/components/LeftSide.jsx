@@ -30,7 +30,7 @@ const LeftSide = () => {
             { label: 'INTEGRATED SOLUTIONS', stats: 45, data: '45+', icon: <Cable size={20} /> },
            
             { label: 'YEARS OF TECHNOLOGY', stats: 60, data: '10+', icon: <Sunset size={20} /> },
-            { label: 'FEATURES', stats: 100, data: '500+', icon: <Zap size={20} /> },
+            { label: 'TOTAL FEATURES', stats: 100, data: '500+', icon: <Zap size={20} /> },
             {
               label: 'BESPOKE SOLUTIONS',
               stats: 85,
