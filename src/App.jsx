@@ -101,7 +101,7 @@ const App = () => {
           {/* Main asymmetric layout */}
           <div className="grid grid-cols-12 grid-rows-6 gap-4 h-full">
             <div
-              className={`col-span-3 row-span-6 rounded-2xl p-6 flex flex-col transition-all backdrop-blur-3xl duration-300 bg-transparent `}
+              className={`col-span-3 row-span-6 rounded-2xl p-2 flex flex-col transition-all backdrop-blur-3xl duration-300 bg-transparent `}
               style={{
                 backdropFilter: 'blur(10px)',
                 boxShadow: `0 0 ${20 + glowIntensity * 20}px rgba(6, 182, 212, ${glowIntensity * 0.5})`,

@@ -18,7 +18,7 @@ const LeftSide = () => {
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col justify-between   rounded-b-md border-l border-b border-r  border-cyan-400/60">
+      <div className="flex-1 flex flex-col justify-between p-2   rounded-b-md border-l border-b border-r  border-cyan-400/60">
         <div className="grid grid-cols-1 gap-2 w-full">
           {[
 
