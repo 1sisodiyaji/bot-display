@@ -16,22 +16,24 @@ const App = () => {
   const [InteractiveDemo2, setInteractiveDemo2] = useState(false);
   const [InteractiveDemo3, setInteractiveDemo3] = useState(false);
  
-  const handleOpenCallOperation = () => {
-    console.log("Call Function Clicked");
-    setShowCall(true); 
-    if (navigator.serviceWorker.controller) { 
-      navigator.serviceWorker.controller.postMessage({
-        type: 'SCHEDULE_CALL',
-        delay: 500
-      });
-    } else {
-      console.warn("Service worker not controlling the page yet, falling back to setTimeout");
-      setTimeout(() => {
-        console.log("Fallback: entering in the set timeout function");
-        console.log(window);
-        window.callSubmit?.();
-      }, 800);
-    }
+  const handleOpenCallOperation = () => { 
+      console.log("Call Function Clicked");
+      setShowCall(true); 
+      
+      if (navigator.serviceWorker && navigator.serviceWorker.controller) { 
+        // Service worker is available and controlling the page
+        navigator.serviceWorker.controller.postMessage({
+          type: 'SCHEDULE_CALL',
+          delay: 500
+        });
+      } else {
+        console.warn("Service worker not controlling the page yet, falling back to setTimeout");
+        setTimeout(() => {
+          console.log("Fallback: entering in the set timeout function");
+          console.log(window);
+          window.callSubmit?.();
+        }, 800);
+      }
   };
 
 
