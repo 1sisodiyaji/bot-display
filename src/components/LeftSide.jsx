@@ -21,14 +21,14 @@ const LeftSide = () => {
       <div className="flex-1 flex flex-col justify-between p-2   rounded-b-md border-l border-b border-r  border-cyan-400/30">
         <div className="grid grid-cols-1 gap-2 w-full">
           {[
-
+ {
+  label: 'MULTICHANNEL SUPPORT',
+  stats: 90,
+  data: '24X7',
+  icon: <Radio size={20} />,
+},
             { label: 'INTEGRATED SOLUTIONS', stats: 45, data: '45+', icon: <Cable size={20} /> },
-            {
-              label: 'MULTICHANNEL SUPPORT',
-              stats: 90,
-              data: '24X7',
-              icon: <Radio size={20} />,
-            },
+           
             { label: 'YEARS OF TECHNOLOGY', stats: 60, data: '10+', icon: <Sunset size={20} /> },
             { label: 'FEATURES', stats: 100, data: '500+', icon: <Zap size={20} /> },
             {
