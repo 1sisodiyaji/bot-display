@@ -15,24 +15,12 @@ const App = () => {
   const [InteractiveDemo1, setInteractiveDemo1] = useState(false);
   const [InteractiveDemo2, setInteractiveDemo2] = useState(false);
   const [InteractiveDemo3, setInteractiveDemo3] = useState(false);
-
-  function isInStandaloneMode() {
-    return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-  }
-
+ 
   const handleOpenCallOperation = () => {
-    setShowCall(true);
-    if (isInStandaloneMode) {
-      console.log("We are now in PWA Mode")
+    setShowCall(true); 
       setTimeout(() => {
         window.callSubmit?.();
-      }, 1000);
-    } else {
-      console.log("We are now in Web  Mode")
-      setTimeout(() => {
-        window.callSubmit?.();
-      }, [1000]);
-    };
+      }, [2500]); 
   }
   const handleOpenChatOperation = () => {
     setShowChat(true);
