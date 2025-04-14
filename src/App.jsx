@@ -20,7 +20,7 @@ const App = () => {
     setShowCall(true);
     setTimeout(() => {
       window.callSubmit?.();
-    }, 1000);
+    }, [1000]);
   }; 
 
   const handleOpenChatOperation = () => {
