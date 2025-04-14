@@ -19,11 +19,7 @@ const App = () => {
   const handleOpenCallOperation = () => {
     setShowCall(true);
     setTimeout(() => {
-      if (typeof window.callSubmit === 'function') {
-        window.callSubmit();
-      } else {
-        console.warn('callSubmit is not ready');
-      }
+      window.callSubmit?.();
     }, 1000);
   }; 
 
