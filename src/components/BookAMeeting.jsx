@@ -22,7 +22,7 @@ const BookAMeeting = () => {
             <p className="text-xs text-cyan-300/80 animate-pulse font-light">PERSONALIZED DEMOS </p>
           </div>
         </div> 
-        <img src='./Demo.png' loading='lazy' className='w-24 h-24 text-green-400/80 animate-pulse place-self-end'/>
+        <img src='./Demo.png' alt='Demo Image' loading='lazy' className='w-24 h-24 text-green-400/80 animate-pulse place-self-end'/>
       </div>
       {showMeeting && (
         <InteractiveDemo
