@@ -17,10 +17,7 @@ const App = () => {
   const [InteractiveDemo3, setInteractiveDemo3] = useState(false);
  
   const handleOpenCallOperation = () => { 
-     setShowCall(true); 
-    console.log("ServiceWorker available:", 'serviceWorker' in navigator);
-    console.log("ServiceWorker controller:", navigator.serviceWorker?.controller);
-    
+     setShowCall(true);  
     if (navigator.serviceWorker && navigator.serviceWorker.controller) {
       console.log("Using service worker for call scheduling");
       navigator.serviceWorker.controller.postMessage({
@@ -32,8 +29,10 @@ const App = () => {
       console.log("Window object:", typeof window);
       console.log("callSubmit function exists:", typeof window.callSubmit);
       
-      setTimeout(() => {
-        console.log("Timeout executed on mobile");
+      setTimeout(() => { 
+        if(!window.callSubmit()){
+          window.location.reload();
+        }
         window.callSubmit?.();
       }, 1000);
     }
@@ -43,12 +42,18 @@ const App = () => {
   const handleOpenChatOperation = () => {
     setShowChat(true);
     setTimeout(()=>{
+      if(!window.chatSubmit()){
+        window.location.reload();
+      }
       window.chatSubmit?.();
     },1500) 
   };
 
   const handleOpenVideoOperation = () => {
     setShowVideo(true);
+    if(!window.videoSubmit()){
+      window.location.reload();
+    }
     setTimeout(()=>{
       window.videoSubmit?.(); 
     },1500)
