@@ -15,9 +15,10 @@ const App = () => {
   const [InteractiveDemo1, setInteractiveDemo1] = useState(false);
   const [InteractiveDemo2, setInteractiveDemo2] = useState(false);
   const [InteractiveDemo3, setInteractiveDemo3] = useState(false);
- 
+  
   const handleOpenCallOperation = () => { 
-     setShowCall(true);  
+    setShowCall(true);  
+  
     if (navigator.serviceWorker && navigator.serviceWorker.controller) {
       console.log("Using service worker for call scheduling");
       navigator.serviceWorker.controller.postMessage({
@@ -26,37 +27,29 @@ const App = () => {
       });
     } else {
       console.warn("Service worker not controlling the page, falling back to setTimeout");
-      console.log("Window object:", typeof window);
-      console.log("callSubmit function exists:", typeof window.callSubmit);
-      
-      setTimeout(() => { 
-        if(!window.callSubmit()){
+      setTimeout(() => {
+        if (typeof window.callSubmit !== 'function') {
+          console.warn("callSubmit is not defined, reloading page as fallback.");
           window.location.reload();
+        } else {
+          console.log("Call SUbmit Function Found now calling that functionaility");
+          window.callSubmit?.(); 
         }
-        window.callSubmit?.();
       }, 1000);
     }
   };
-
-
+  
   const handleOpenChatOperation = () => {
     setShowChat(true);
-    setTimeout(()=>{
-      if(!window.chatSubmit()){
-        window.location.reload();
-      }
-      window.chatSubmit?.();
-    },1500) 
+    setTimeout(() => {
+      window.chatSubmit?.(); 
+    }, 1500);
   };
-
   const handleOpenVideoOperation = () => {
     setShowVideo(true);
-    if(!window.videoSubmit()){
-      window.location.reload();
-    }
-    setTimeout(()=>{
+    setTimeout(() => {
       window.videoSubmit?.(); 
-    },1500)
+    }, 1500);
   };
 
   const handleInteractiveDemo1 = () => setInteractiveDemo1(true);
