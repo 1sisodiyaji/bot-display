@@ -17,9 +17,7 @@ const App = () => {
   const [InteractiveDemo3, setInteractiveDemo3] = useState(false);
  
   const handleOpenCallOperation = () => { 
-    console.log("Call Function Clicked - Device Type:", /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? "Mobile" : "Desktop");
-    setShowCall(true);
-    
+     setShowCall(true); 
     console.log("ServiceWorker available:", 'serviceWorker' in navigator);
     console.log("ServiceWorker controller:", navigator.serviceWorker?.controller);
     
@@ -44,12 +42,16 @@ const App = () => {
 
   const handleOpenChatOperation = () => {
     setShowChat(true);
-    window.chatSubmit?.();
+    setTimeout(()=>{
+      window.chatSubmit?.();
+    },1500) 
   };
 
   const handleOpenVideoOperation = () => {
     setShowVideo(true);
-    window.videoSubmit?.();
+    setTimeout(()=>{
+      window.videoSubmit?.(); 
+    },1500)
   };
 
   const handleInteractiveDemo1 = () => setInteractiveDemo1(true);
