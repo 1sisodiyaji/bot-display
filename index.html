@@ -195,7 +195,7 @@
     })(document, "script");
   </script>
 
-  <script>
+  <!-- <script>
     window.$CallNow || (function (doc_Call, scr_Call) {
       var _e_CallNow = $CallNow = function (Ruvo_c) {
         _e_CallNow._.push(Ruvo_c)
@@ -221,8 +221,28 @@
       $.type = "text/javascript";
       e.parentNode.insertBefore($, e)
     })(document, "script");
-  </script>
+  </script> -->
 
+  <script type="text/javascript">
+    function loadScript(src, callback) {
+        const script = document.createElement('script');
+        script.setAttribute("id", "call_now");
+        script.src = src;
+        script.onload = () => {
+            console.log(`${src} loaded`);
+            if (callback) callback();
+        };
+        script.onerror = () => {
+            console.error(`Failed to load script: ${src}`);
+        };
+        document.head.appendChild(script);
+    }
+    loadScript('https://demo.radius-ois.ai/robowebtoolscall/assets/js/call_ui.js?e87274b76f0d82e1ffcf', () => {
+        console.log('call_ui.js loaded');
+    })
+    </script>
+
+    
   <script>
     window.$RuvoChat || (function (doc_RuvoChat, scr_RuvoChat) {
       var _e_RuvoChat = $RuvoChat = function (Ruvo_c) {
