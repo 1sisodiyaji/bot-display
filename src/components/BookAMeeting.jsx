@@ -1,4 +1,4 @@
-import { CalendarArrowUp, CircleDot } from 'lucide-react';
+import {CircleDot } from 'lucide-react';
 import { useState } from 'react';
 import InteractiveDemo from './InteractiveDemo';
 
@@ -21,8 +21,8 @@ const BookAMeeting = () => {
             <CircleDot className="w-4 text-green-400" />{' '}
             <p className="text-xs text-cyan-300/80 animate-pulse font-light">PERSONALIZED DEMOS </p>
           </div>
-        </div>
-        <CalendarArrowUp className="w-24 h-24 text-green-400/80 animate-pulse place-self-end" />
+        </div> 
+        <img src='/assets/Demo.png' loading='lazy' className='w-24 h-24 text-green-400/80 animate-pulse place-self-end'/>
       </div>
       {showMeeting && (
         <InteractiveDemo
